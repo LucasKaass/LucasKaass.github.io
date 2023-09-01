@@ -1,94 +1,117 @@
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #222;
-    color: #fff;
-    display: flex;
-    min-height: 100vh;
-    /*background-image: url("andrew tate.jpg");*/
-}
+@media screen and (min-width: 501px) {
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #222;
+        color: #fff;
+        display: flex;
+        min-height: 100vh;
 
-.sidebar {
-    background-color: #111;
-    width: 250px;
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-    box-shadow: 0 0 25px rgba(0, 0, 0, 0.25);
-}
+    }
+    .info1 {
+        position: relative;
+        border-radius: 25px;
+        background: gray;
+        padding: 25px;
+        width: fit-content;
+        height: fit-content;
+        left:10%;
+        margin-top: 200px;
+        max-width: 350px;
+        box-shadow: 10px 10px 10px whitesmoke;
+        box-sizing: content-box;
+    }
 
-
-.sidebar a {
-    color: #fff;
-    text-decoration: none;
-    margin-left: 10px;
-    margin-bottom: 10px;
-    font-size: 35px;
-}
-
-.sidebaritem{
-    transition: 0.5s;
-}
-
-.sidebaritem:hover{
-    text-decoration: underline white;
-}
-
-
-.content {
-    flex: 1;
-    padding: 300px;
-    /*display: flex;*/
-    position: fixed;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-image: url(239478107_572190387497342_7465870120679779772_n.jpg);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size:40%;
-}
-
-.content img {
-    max-width: 25%;
-    max-height: 25%;
-    height: auto;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-}
-
-.info1 {
-    position: relative;
-    border-radius: 25px;
-    background: gray;
-    padding: 25px;
-    width: fit-content;
-    height: fit-content;
-    left:10%;
-    margin-top: 200px;
-    max-width: 350px;
-    box-shadow: 10px 10px 10px whitesmoke;
-    box-sizing: content-box;
-}
-
-.info2{
-    position: relative;
-    border-radius: 25px;
-    background: gray;
-    padding: 25px;
-    width: fit-content;
-    height: fit-content;
-    left: 45%;
-    margin-top: 200px;
-    max-width: 350px;
-    box-shadow: 10px 10px 10px whitesmoke;
-    box-sizing: content-box;
+    .info2 {
+        position: relative;
+        border-radius: 25px;
+        background: gray;
+        padding: 25px;
+        width: fit-content;
+        height: fit-content;
+        left: 45%;
+        margin-top: 200px;
+        max-width: 350px;
+        box-shadow: 10px 10px 10px whitesmoke;
+        box-sizing: content-box;
+    }
+    .content {
+        flex: 1;
+        padding: 400px;
+        position: fixed;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-image: url(239478107_572190387497342_7465870120679779772_n.jpg);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size:40%;
+    }
 }
 
 .buttons{
     margin-left: 60px;
 }
+
+@media screen and (max-width: 500px){
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #222;
+        color: #fff;
+        display: inline;
+        min-height: 100vh;
+    }
+
+    .content{
+        position: relative;
+        width: 250px;
+        height: 250px;
+        margin-left: 20%;
+        background-image: url(239478107_572190387497342_7465870120679779772_n.jpg);
+        background-repeat: no-repeat;
+        background-size:100%;
+
+    }
+
+    .text{
+        position: absolute;
+        top: 50%;
+        left: 85px;
+        color: gold;
+        font-family: Onyx;
+    }
+
+    .info1 {
+        position: relative;
+        border-radius: 25px;
+        background: gray;
+        padding: 25px;
+        width: fit-content;
+        height: fit-content;
+        margin-left: 5px;
+        margin-top: 50px;
+        max-width: 325px;
+        box-shadow: 10px 10px 10px whitesmoke;
+        box-sizing: content-box;
+    }
+    .info2{position: relative;
+        border-radius: 25px;
+        background: gray;
+        padding: 25px;
+        width: fit-content;
+        height: fit-content;
+        left: 5px;
+        margin-top: 50px;
+        max-width: 325px;
+        box-shadow: 10px 10px 10px whitesmoke;
+        box-sizing: content-box;
+        margin-bottom: 100px;
+    }
+}
+
