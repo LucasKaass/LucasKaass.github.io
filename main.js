@@ -24,8 +24,7 @@ const data = {
     "engels":
         {
             "info_titel1": "About Me",
-            "info_content1":
-                "My name is Lucas, and I am a passionate Software Developer. <br> With 4 years of experience as a student, intern, and hobbyist, I have built knowledge in Application Development, Web Development, Databases, Scripting, and AI. <br> <br> What started as a hobby and interest has now turned into an MBO4 diploma in Software Development, and it doesn't stop there. <br> Because I aspire to expand my expertise and skills, I have recently started my Associate's degree in Software Development at the Amsterdam University of Applied Sciences.",
+            "info_content1":"My name is Lucas, and I am a passionate Software Developer. <br> With 4 years of experience as a student, intern, and hobbyist, I have built knowledge in Application Development, Web Development, Databases, Scripting, and AI. <br> <br> What started as a hobby and interest has now turned into an MBO4 diploma in Software Development, and it doesn't stop there. <br> Because I aspire to expand my expertise and skills, I have recently started my Associate's degree in Software Development at the Amsterdam University of Applied Sciences.",
 
             "info_titel2": "And furthermore...",
             "info_content2": "Now that I have obtained my diploma, I find myself in a position where I could enter the job market. However, I have chosen to continue my studies. <br> To still make the most of my diploma and build a portfolio, I have decided to establish my own company where I offer programming services as a freelancer. <br> <br> If you need a workforce for a small project, website, or any other work requiring programming, please let me know. <br> I would be happy to help. <br> <br> Contact Information:"
