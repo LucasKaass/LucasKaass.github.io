@@ -45,7 +45,6 @@ header{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    /*background-color: darkslategray;*/
     padding-top: 5px;
     background-color: white;
     height: 60px;
@@ -94,7 +93,6 @@ section{
     background-color: white;
     height: 400px;
     border-bottom: 5px solid black;
-    box-shadow:0 0 10px black;
 }
 
 .section-main1{
@@ -120,9 +118,13 @@ section{
     padding-bottom: 50px;
 }
 
+.section-main4{
+    height: fit-content;
+}
+
 .text-about-me-wrapper{
     margin-top: 20px;
-    border: 2px solid black;
+    border-bottom: 2px solid black;
     margin-bottom: 20px;
     height: fit-content;
     width: 460px;
@@ -130,8 +132,8 @@ section{
 
 .text-furthermore-wrapper{
     margin-top: 20px;
-    border: 2px solid black;
-    margin-bottom: 20px;
+    border-bottom: 2px solid black;
+    padding-bottom: 10px;
     height: fit-content;
     width: 460px;
 }
@@ -204,4 +206,51 @@ section>div>figure>h1{
     font-family: Consolas;
 }
 
+@media screen and (max-width: 1250px){
+    .section-main2{
+        flex-direction: column;
+        align-items: center;
+    }
 
+    .navbar-pc>li{
+        display: none !important;
+    }
+
+    .navbarmobile{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100%;
+        padding-left: 250px;
+        padding-right: 250px;
+        padding-bottom: 10px;
+    }
+
+    li{
+        list-style: none;
+    }
+
+    .navbar>li{
+        display: none !important;
+    }
+
+    .navbar{
+        height: fit-content;
+    }
+
+    .fa-list{
+        font-size: 25px;
+    }
+
+
+}
+
+@media screen and (min-width: 1251px){
+    .navbarmobile{
+        display: none !important;
+    }
+}
+
+.text-coming-soon{
+    font-family: "Yu Gothic Medium";
+}
