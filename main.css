@@ -160,15 +160,10 @@ section{
 
 }
 
-.langwrap-container {
-    color: #555;
-    text-align: center;
-    margin-top: 50px;
-}
-
 .langWrap{
     background: #333;
     padding-left: 5px;
+    width: fit-content;
 }
 
 .fa-language{
