@@ -71,11 +71,16 @@ header{
     text-decoration: auto;
     color: black;
     font-size: 2rem;
-
 }
 
 .btn:hover{
     text-decoration: underline 1px solid black;
+    cursor:pointer;
+}
+
+.btnmobile:hover{
+    text-decoration: underline 1px solid black;
+    cursor:pointer;
 }
 
 .logo-self{
@@ -237,9 +242,21 @@ section>div>figure>h1{
         font-size: 25px;
     }
 
-     .text-furthermore-wrapper{
-        padding-bottom: 185px;
+    .fa-envelope{
+        font-size: 35px;
     }
+
+    .fa-linkedin-square{
+        font-size: 35px;
+    }
+
+     .text-about-me{
+         font-size: 30px;
+     }
+
+     .text-furthermore{
+         font-size: 30px;
+     }
 
 }
 
