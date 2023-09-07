@@ -56,7 +56,17 @@ const observer = new IntersectionObserver((entries)=>{
 
 const hiddenElements = document.querySelectorAll('.hidden')
 hiddenElements.forEach((el)=> observer.observe(el))
+//Fade in elements^
 
 
+function scrollToId(id){
+    console.log("RUNNED");
 
+    const yOffset = -68;
+    const element = document.getElementById(id);
+    const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
 
+    window.scrollTo({top: y, behavior: 'smooth'});
+}
+
+//button scroll^
