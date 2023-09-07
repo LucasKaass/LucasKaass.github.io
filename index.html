@@ -16,63 +16,63 @@
 <header class="navbar-container">
 
 
-<nav class="navbar show">
+    <nav class="navbar show">
 
-    <div class="navbarmobile">
+        <div class="navbarmobile">
+
+            <li>
+                <a  class="btnmobile" href="#section-home"><i class="fa-solid fa-house-chimney-window" style="font-size: 45px; color: black;"></i></a>
+
+            <li>
+                <a class="btnmobile" href="#section-about-me"><i class="fa-solid fa-circle-info" style="font-size: 45px; color: black;"></i></a>
+            </li>
+
+            <li>
+                <i class="fa-solid fa-circle-user" style="font-size: 60px"></i>
+            </li>
+
+            <li>
+                <a class="btnmobile" href="#section-projects"><i class="fa-regular fa-folder-open" style="font-size: 45px; color: black"></i></a>
+            </li>
+
+
+            <li>
+                <a class="btnmobile" href="#section-contact"><i class="fa-regular fa-address-card" style="font-size: 45px; color: black;"></i> </a>
+            </li>
+
+        </div>
+
 
         <li>
-            <a  class="btnmobile" href="#section-home"><i class="fa-solid fa-house-chimney-window" style="font-size: 45px; color: black;"></i></a>
+            <a  class="btn" onclick="scrollToId('section-home')">Home <i class="fa-solid fa-house-chimney-window" style="font-size: 25px"></i></a>
+
 
         <li>
-            <a class="btnmobile" href="#section-about-me"><i class="fa-solid fa-circle-info" style="font-size: 45px; color: black;"></i></a>
+            <a class="btn" onclick="scrollToId('section-about-me')" >Over mij <i class="fa-solid fa-circle-info" style="font-size: 25px"></i></a>
         </li>
 
         <li>
-            <i class="fa-solid fa-circle-user" style="font-size: 60px"></i>
+            <i class="fa-solid fa-circle-user" style="font-size: 50px"></i>
         </li>
 
         <li>
-            <a class="btnmobile" href="#section-projects"><i class="fa-regular fa-folder-open" style="font-size: 45px; color: black"></i></a>
+            <a class="btn" onclick="scrollToId('section-projects')">Projecten <i class="fa-regular fa-folder-open" style="font-size: 25px"></i></a>
         </li>
 
 
         <li>
-            <a class="btnmobile" href="#section-contact"><i class="fa-regular fa-address-card" style="font-size: 45px; color: black;"></i> </a>
+            <a class="btn" href="#section-contact">Contact <i class="fa-regular fa-address-card" style="font-size: 25px"></i> </a>
         </li>
 
-    </div>
-
-
-    <li>
-    <a  class="btn" onclick="scrollToId('section-home')">Home <i class="fa-solid fa-house-chimney-window" style="font-size: 25px"></i></a>
-
-
-    <li>
-        <a class="btn" onclick="scrollToId('section-about-me')" >Over mij <i class="fa-solid fa-circle-info" style="font-size: 25px"></i></a>
-    </li>
-
-    <li>
-        <i class="fa-solid fa-circle-user" style="font-size: 50px"></i>
-    </li>
-
-    <li>
-        <a class="btn" onclick="scrollToId('section-projects')">Projecten <i class="fa-regular fa-folder-open" style="font-size: 25px"></i></a>
-    </li>
-
-
-    <li>
-        <a class="btn" href="#section-contact">Contact <i class="fa-regular fa-address-card" style="font-size: 25px"></i> </a>
-    </li>
-
-</nav>
+    </nav>
 
 </header>
 
 <div class="main">
     <section class="section-main1" id="section-home">
-            <img class="img-main hidden" style="width: 250px; height: 250px;" src="239478107_572190387497342_7465870120679779772_n.jpg" alt="Foto of me">
-            <h1 class="text-home hidden">ik ben lucas, <br> een  Software Developer</h1>
-<!--                <p class="text-main">Mijn naam is Lucas en ik ben een gepassioneerde Software Developer. <br> Met 4 jaar ervaring als student, stagiair en hobbyist heb ik een kennis opgebouwd in Applicatie Ontwikkeling, Web Ontwikkeling, Databases, Scripting en AI. <br> <br> Wat begonnen is als hobby en interesse heb ik inmiddels omgezet in een MBO4 diploma Software Developer en daar stopt het niet. <br> Omdat ik de wens heb om mijn expertise en skills uit te breiden ben ik sinds kort begonnen aan mijn Associate's degree Software Development aan de Hogeschool van Amsterdam.</p>-->
+        <img class="img-main hidden" style="width: 250px; height: 250px;" src="239478107_572190387497342_7465870120679779772_n.jpg" alt="Foto of me">
+        <h1 class="text-home hidden">ik ben lucas, <br> een  Software Developer</h1>
+        <!--                <p class="text-main">Mijn naam is Lucas en ik ben een gepassioneerde Software Developer. <br> Met 4 jaar ervaring als student, stagiair en hobbyist heb ik een kennis opgebouwd in Applicatie Ontwikkeling, Web Ontwikkeling, Databases, Scripting en AI. <br> <br> Wat begonnen is als hobby en interesse heb ik inmiddels omgezet in een MBO4 diploma Software Developer en daar stopt het niet. <br> Omdat ik de wens heb om mijn expertise en skills uit te breiden ben ik sinds kort begonnen aan mijn Associate's degree Software Development aan de Hogeschool van Amsterdam.</p>-->
 
     </section>
 
@@ -110,27 +110,25 @@
     <section class="section-projects" id="section-projects">
 
         <div class="projects-container hidden">
+            <div class="slideshow-container">
 
-            <figure>
-                <h1 >Project Povis Kassasystemen </h1>
-                <img src="Project%20povis.png" >
-                <figcaption style="font-size: 25px">Opdrachtgever: Povis Kassasytemen <br> Tools: React <i class="fa-brands fa-react" style="color: aqua"></i>, TypeScript <img src="typescript.png" style="width: 20px; height: 20px;"></i></figcaption>
-            </figure>
+                <div class="mySlides fade">
+                    <h1>Project Povis (1/2)</h1>
+                    <img src="Project%20povis.png" style="width:100%">
+                    <h1 style="font-size: 25px">Opdrachtgever: Povis Kassasytemen <br> Tools: React <i class="fa-brands fa-react" style="color: aqua"></i>, TypeScript <img src="typescript.png" style="width: 20px; height: 20px;"></i></h1>
+                    <h4 class="project-descr">Met dit project heb ik voor Povis Kassasystemen een zelfbedieningkassa geprogrammeerd. <br> Dit kassasysteem heb ik met behulp van een API en een database ontwikkeld binnen de React library met als primaire programmeertaal TypeScript, dit is een geavanceerde versie van JavaScript. Bij dit project stond functionaliteit voorop.</h4>
+                </div>
 
-            <figure>
-                <img>
-                <figcaption></figcaption>
-            </figure>
+                <div class="mySlides fade">
+                    <h1>Jouw Project hier? (2/2)</h1>
+                    <img src="project-placeholder.png" style="width:100%">
+                    <h1 style="font-size: 25px">Mijn skills/vaardigheden: <br> HTML  <i class="fab fa-html5" style="color: red"></i> <br> CSS  <i style="color: lightblue" class="fa-brands fa-css3-alt"></i> <br>  Javascript  <i style="color: yellow; background-color: black" class="fa-brands fa-square-js"></i> <br>  PHP  <i class="fa-brands fa-php"></i><br>  SQL <i class="fa-solid fa-database"></i></h1>
+                </div>
 
-            <figure>
-                <img>
-                <figcaption></figcaption>
-            </figure>
+                <a class="prev" onclick="plusSlides(-1)">❮</a>
+                <a class="next" onclick="plusSlides(1)">❯</a>
 
-            <figure>
-                <img>
-            </figure>
-
+            </div>
         </div>
 
     </section>
