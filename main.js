@@ -60,7 +60,7 @@ hiddenElements.forEach((el)=> observer.observe(el))
 
 
 function scrollToId(id){
-    console.log("RUNNED");
+    console.log("RAN");
 
     const yOffset = -68;
     const element = document.getElementById(id);
@@ -78,10 +78,6 @@ function plusSlides(n) {
     showSlides(slideIndex += n);
 }
 
-function currentSlide(n) {
-    showSlides(slideIndex = n);
-}
-
 function showSlides(n) {
     let i;
     let slides = document.getElementsByClassName("mySlides");
@@ -95,7 +91,23 @@ function showSlides(n) {
         dots[i].className = dots[i].className.replace(" active", "");
     }
     slides[slideIndex-1].style.display = "block";
-    dots[slideIndex-1].className += " active";
 }
 
 //slideshow^
+
+/**
+ * On the button click, takes the users message and subject, and opens their default mail client and puts the subject and message in the right mail fields.
+ */
+document.getElementById('contactForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    // Get the values from the form
+    const subject = document.getElementById('subject').value;
+    const message = document.getElementById('message').value;
+
+        // Create a mailto link with the subject and message
+        const mailtoLink = `mailto:lucaskaas2@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(message)}`;
+
+        // Open the user's default email client
+        window.location.href = mailtoLink;
+});
