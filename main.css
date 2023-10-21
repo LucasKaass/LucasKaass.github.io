@@ -32,7 +32,7 @@ body {
     z-index: 1;
 }
 
-header{
+header {
     z-index: 2;
     top: 0;
     left: 1px;
@@ -53,17 +53,21 @@ header{
     border-bottom: 2px solid black;
 }
 
-.navbar-pc{
+.navbar a {
+    cursor: pointer;
+}
+
+.navbar-pc {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    margin-top: 10px;
     width: 100%;
     padding-left: 250px;
     padding-right: 250px;
     padding-bottom: 10px;
 }
-
 
 
 .btn {
@@ -215,6 +219,7 @@ section > div > figure > h1 {
         flex-direction: row;
         justify-content: space-between;
         width: 100%;
+        margin-top: 10px;
         padding-left: 250px;
         padding-right: 250px;
         padding-bottom: 10px;
@@ -241,7 +246,7 @@ section > div > figure > h1 {
     }
 
     .project-descr {
-        font-size: 10px;
+        font-size: 15px;
     }
 
 }
@@ -267,7 +272,7 @@ section > div > figure > h1 {
 .prev, .next {
     cursor: pointer;
     position: absolute;
-    top: 50%;
+    top: 25%;
     width: auto;
     padding: 16px;
     margin-top: -22px;
@@ -381,3 +386,4 @@ section > div > figure > h1 {
 .section-main-footer {
     height: fit-content;
 }
+
