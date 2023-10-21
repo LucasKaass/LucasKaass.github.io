@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://kit.fontawesome.com/2a0377810d.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="devlog.css">
+    <meta charset="UTF-8">
+    <title>Devlog 3DWorld</title>
+
+</head>
+<body>
+
+<header class="navbar-container">
+
+    <nav class="navbar show">
+
+        <div class="navbarmobile">
+
+            <a class="btnmobile" href="index.html#section-home"><i class="fa-solid fa-house-chimney-window"
+                                                         style="font-size: 45px; color: black;"></i></a>
+            <a class="btnmobile" href="index.html#section-about-me"><i class="fa-solid fa-circle-info"
+                                                             style="font-size: 45px; color: black;"></i></a>
+
+            <i class="fa-solid fa-circle-user" style="font-size: 60px"></i>
+
+            <a class="btnmobile" href="index.html#section-projects"><i class="fa-regular fa-folder-open"
+                                                             style="font-size: 45px; color: black"></i></a>
+
+            <a class="btnmobile" href="index.html#section-contact"><i class="fa-regular fa-address-card"
+                                                            style="font-size: 45px; color: black;"></i> </a>
+        </div>
+
+        <div class="navbar-pc">
+
+            <a class="btn" href="index.html#section-home" onclick="scrollToId('section-home') ">Home <i class="fa-solid fa-house-chimney-window"
+                                                                        style="font-size: 25px"></i></a>
+            <a class="btn" href="index.html#section-about-me" onclick="scrollToId('section-about-me')">Over mij <i class="fa-solid fa-circle-info"
+                                                                                style="font-size: 25px"></i></a>
+            <i class="fa-solid fa-circle-user" style="font-size: 50px"></i>
+
+            <a class="btn" href="index.html#section-projects" onclick="scrollToId('section-projects')">Projecten <i class="fa-regular fa-folder-open"
+                                                                                 style="font-size: 25px"></i></a>
+            <a class="btn" href="index.html#section-contact">Contact <i class="fa-regular fa-address-card"
+                                                              style="font-size: 25px"></i> </a>
+        </div>
+    </nav>
+
+</header>
+
+<div class="main">
+
+    <section class="section-main1">
+        <h1 class="text-home hidden">Devlog project 3DWorld</h1>
+        <p class="text-home hidden">Voor dit project is de opdracht om een subscriptie-service gebaseerde website te maken, <br> waarop mensen 3Dprint-artiesten kunnen ondersteunen op basis van een maandelijkse bijdrage. <br> In deze devlog documenteer ik mijn werk voor dit project.</p>
+    </section>
+
+    <section class="section-devLog">
+        <h1 class="section-title">Website template <br> (Datum van toepassing: 19-10-23)</h1><br>
+        <h4 class="section-description">Om dit project soepel te laten verlopen, is het natuurlijk de bedoeling dat alle pagina's er hetzelfde uit zien. <br> Omdat ik met meerdere individuelen aan dit project werk, is het dus handig als er een globale template beschikbaar is zodat iedereen in iedergeval in grote lijnen dezelfde layout heeft voor zijn pagina. <br> Daarom heb ik voor het hele team een responsive en dynamische template gemaakt die we allemaal kunnen toepassen op onze pagina's.</h4>
+        <img class="devLogIMG" src="templateIMG.jpg">
+        <h4 class="image-description">Deze webpagina bestaat uit een "sticky" navbar, met daarin hyperlinks naar: <br> -De homepage <br> -De discovery sectie <br> En een dropdown menu voor: <br> -Uitloggen <br> -Instellingen <br> -Meer algemene accountinformatie <br> <br> Daaronder een: <br> Pagina content sectie <br> Een footer met hyperlinks naar andere externe pagina's.</h4>
+    </section>
+
+    <section class="section-devLog">
+        <h1 class="section-title">Algemene voorwaarden</h1><br>
+        <h4 class="section-description">Als bedrijf wil je jezelf en je gebruikers willen beschermen, ook op het gebied van het gebruik van je website.<br> Daarom is het belangrijk dat er een duidelijk en juridisch correcte algemene voorwaarden pagina wordt opgestelt.<br> Deze pagina ziet er als volgt uit:</h4>
+        <img class="devLogIMG" src="termsAndConditionsPage.jpeg">
+        <h4 class="image-description">Deze webpagina bestaat uit een sticky navbar, met daarin hyperlinks naar: <br> -De homepage <br> -De discovery sectie <br> En een dropdown menu voor: <br> -Uitloggen <br> -Instellingen <br> -Meer algemene accountinformatie</h4>
+    </section>
+
+    <section class="section-main-footer">
+        <h1 class="text-coming-soon hidden" style="text-align: center"><i class="fa-solid fa-triangle-exclamation"></i>
+            More coming soon <i class="fa-solid fa-triangle-exclamation"></i></h1>
+        <h2 class="hidden" style="text-align: center; font-family: 'Yu Gothic Light'">This site is under active
+            development</h2>
+        <h3 style="text-align: center">©Lucas Kaas. All rights reserved.</h3>
+    </section>
+
+
+</div>
+
+<script defer src="main.js"></script>
+
+</body>
+</html>
