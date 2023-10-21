@@ -5,12 +5,12 @@ const descrEL1 = document.querySelector('.text-about-me')
 const titleEL2 = document.querySelector('.text-furthermore-title')
 const descrEL2 = document.querySelector('.text-furthermore')
 
-link.forEach( el => {
+link.forEach(el => {
     el.addEventListener('click', () => {
         langEL.querySelector('.active').classList.remove('active');
         el.classList.add('active');
 
-        const attr = el.getAttribute('taal')
+        const attr = el.getAttribute('id')
 
         titleEL1.innerHTML = data[attr].info_titel1
         descrEL1.innerHTML = data[attr].info_content1
@@ -36,30 +36,30 @@ const data = {
             "info_content1":
                 "Mijn naam is Lucas, ik ben een gepassioneerde Software Developer. <br> Met 4 jaar ervaring als student, stagiair en hobbyist heb ik een kennis opgebouwd in Applicatie Ontwikkeling, Web Ontwikkeling, Databases en scripting. <br> <br> Wat begonnen is als hobby en interesse heb ik inmiddels omgezet in een MBO4 diploma Software Developer en daar stopt het niet. <br> Omdat ik de wens heb om mijn expertise en skills uit te breiden ben ik sinds kort begonnen aan mijn Associate's degree Software Development aan de Hogeschool van Amsterdam. ",
 
-            "info_titel2":"En verder...",
+            "info_titel2": "En verder...",
             "info_content2":
                 "Nu ik mijn diploma heb behaald, bevind ik mij in een positie waar ik de arbeidsmarkt op zou kunnen gaan, echter heb ik er voor gekozen om verder te studeren. <br> Om alsnog wat uit mijn diploma te halen en hiermee een portfolio op te bouwen heb ik besloten een eigen bedrijf op te richten waar ik als ZZP'er programmeerdiensten aanbied.<br> <br> Heeft u een arbeidskracht nodig voor bijvoorbeeld een klein project, website of ander werk waar programmeren nodig is? <br> Ik hoor het graag. <br> <br> Contactinformatie: "
         }
 }
 //Langswitch^
 
-const observer = new IntersectionObserver((entries)=>{
-    entries.forEach((entry)=>{
-        if (entry.isIntersecting){
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+        if (entry.isIntersecting) {
             entry.target.classList.add('show')
-        }
-        else {
+        } else {
             // entry.target.classList.remove('show')
         }
     })
 });
 
 const hiddenElements = document.querySelectorAll('.hidden')
-hiddenElements.forEach((el)=> observer.observe(el))
+hiddenElements.forEach((el) => observer.observe(el))
+
 //Fade in elements^
 
 
-function scrollToId(id){
+function scrollToId(id) {
     console.log("RAN");
 
     const yOffset = -68;
@@ -82,15 +82,19 @@ function showSlides(n) {
     let i;
     let slides = document.getElementsByClassName("mySlides");
     let dots = document.getElementsByClassName("dot");
-    if (n > slides.length) {slideIndex = 1}
-    if (n < 1) {slideIndex = slides.length}
+    if (n > slides.length) {
+        slideIndex = 1
+    }
+    if (n < 1) {
+        slideIndex = slides.length
+    }
     for (i = 0; i < slides.length; i++) {
         slides[i].style.display = "none";
     }
     for (i = 0; i < dots.length; i++) {
         dots[i].className = dots[i].className.replace(" active", "");
     }
-    slides[slideIndex-1].style.display = "block";
+    slides[slideIndex - 1].style.display = "block";
 }
 
 //slideshow^
@@ -98,16 +102,16 @@ function showSlides(n) {
 /**
  * On the button click, takes the users message and subject, and opens their default mail client and puts the subject and message in the right mail fields.
  */
-document.getElementById('contactForm').addEventListener('submit', function(event) {
+document.getElementById('contactForm').addEventListener('submit', function (event) {
     event.preventDefault();
 
     // Get the values from the form
     const subject = document.getElementById('subject').value;
     const message = document.getElementById('message').value;
 
-        // Create a mailto link with the subject and message
-        const mailtoLink = `mailto:lucaskaas2@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(message)}`;
+    // Create a mailto link with the subject and message
+    const mailtoLink = `mailto:lucaskaas2@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(message)}`;
 
-        // Open the user's default email client
-        window.location.href = mailtoLink;
+    // Open the user's default email client
+    window.location.href = mailtoLink;
 });
