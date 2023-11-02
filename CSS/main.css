@@ -1,0 +1,389 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+/**/
+body {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+}
+
+body {
+    /*background-color: #CCE6E6;*/
+
+    background-color: white;
+    display: block;
+}
+
+.hidden {
+    filter: blur(5px);
+    transition: all 1.5s;
+    transform: translateX(-100%);
+    z-index: 1;
+}
+
+.show {
+    filter: blur();
+    transform: translateX(0);
+    z-index: 1;
+}
+
+header {
+    z-index: 2;
+    top: 0;
+    left: 1px;
+    right: 1px;
+    position: fixed;
+    width: 100%;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: white;
+    display: flex;
+    font-size: 17px;
+    height: 60px;
+    box-shadow: 0 4px 2px -2px gray;
+    border-bottom: 2px solid black;
+}
+
+.navbar a {
+    cursor: pointer;
+}
+
+.navbar-pc {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+    width: 100%;
+    padding-left: 250px;
+    padding-right: 250px;
+    padding-bottom: 10px;
+}
+
+
+.btn {
+    text-decoration: auto;
+    color: black;
+    font-size: 2rem;
+
+}
+
+.btn:hover {
+    text-decoration: underline 1px solid black;
+}
+
+.logo-self {
+    font-size: 2.25rem;
+    color: black;
+    text-decoration: auto;
+}
+
+.main {
+    padding-right: 85px;
+    padding-left: 85px;
+}
+
+section {
+    background-color: white;
+    height: 400px;
+    border-bottom: 5px solid black;
+}
+
+.section-main1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 85px;
+}
+
+.text-home {
+    text-align: center;
+    font-family: "Copperplate Gothic Light";
+    border-bottom: 2px solid black;
+}
+
+.section-main2 {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    padding-top: 50px;
+    height: fit-content;
+    padding-bottom: 50px;
+}
+
+.section-main4 {
+    height: 500px;
+}
+
+.text-about-me-wrapper {
+    margin-top: 20px;
+    border-bottom: 2px solid black;
+    margin-bottom: 20px;
+    height: fit-content;
+    width: 460px;
+}
+
+.text-furthermore-wrapper {
+    margin-top: 20px;
+    border-bottom: 2px solid black;
+    padding-bottom: 10px;
+    height: fit-content;
+    width: 460px;
+}
+
+.text-furthermore-wrapper > h1 {
+    padding-left: 20px;
+}
+
+.text-furthermore {
+    padding-left: 20px;
+}
+
+.text-about-me-wrapper > h1 {
+    padding-left: 20px;
+}
+
+.text-about-me {
+    padding-left: 20px;
+}
+
+.text-furthermore-buttons {
+    display: flex;
+    justify-content: space-evenly;
+
+}
+
+.langWrap {
+    background: #333;
+    padding-left: 5px;
+    width: fit-content;
+}
+
+.fa-language {
+    color: white;
+}
+
+a.active {
+    background: #f21313;
+}
+
+.langswitch {
+    text-transform: uppercase;
+    color: #fff;
+    text-decoration: none;
+    padding: 0 15px;
+    font-weight: bold;
+    background: #555656;
+    font-size: 18px;
+}
+
+.section-projects {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    height: fit-content;
+}
+
+.projects-container {
+
+}
+
+section > div > figure > h1 {
+    text-align: center;
+    font-family: Consolas;
+}
+
+@media screen and (max-width: 1250px) {
+    .section-main2 {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .navbar-pc {
+        display: none !important;
+    }
+
+    .navbarmobile {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100%;
+        margin-top: 10px;
+        padding-left: 250px;
+        padding-right: 250px;
+        padding-bottom: 10px;
+    }
+
+    li {
+        list-style: none;
+    }
+
+    .navbar > li {
+        display: none !important;
+    }
+
+    .navbar {
+        height: fit-content;
+    }
+
+    .fa-list {
+        font-size: 25px;
+    }
+
+    .text-furthermore-wrapper {
+        padding-bottom: 185px;
+    }
+
+    .project-descr {
+        font-size: 15px;
+    }
+
+}
+
+@media screen and (min-width: 1251px) {
+    .navbarmobile {
+        display: none !important;
+    }
+}
+
+.text-coming-soon {
+    font-family: "Yu Gothic Medium";
+}
+
+/* Slideshow container */
+.slideshow-container {
+    max-width: 1000px;
+    position: relative;
+    margin: auto;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 25%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: red;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    background-color: gray;
+}
+
+/* Position the "next button" to the right */
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Caption text */
+.text-projects-caption {
+    color: #f2f2f2;
+    font-size: 15px;
+    padding: 8px 12px;
+    position: absolute;
+    bottom: 8px;
+    width: 100%;
+    text-align: left;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+    background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@keyframes fade {
+    from {
+        opacity: .4
+    }
+    to {
+        opacity: 1
+    }
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+    .prev, .next, .text {
+        font-size: 11px;
+    }
+}
+
+.project-descr {
+    max-width: 650px;
+}
+
+.contact-form {
+    top: 150px;
+    max-width: 950px;
+    margin-top: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.contact-form label, .contact-form input, .contact-form textarea {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.contact-form input, .contact-form textarea {
+    resize: none;
+    width: 85%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+.contact-form button {
+    background-color: #007BFF;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.section-main-footer {
+    height: fit-content;
+}
+

@@ -1,0 +1,38 @@
+.section-main1{
+    height: fit-content;
+}
+
+.section-devLog{
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.devLogIMG{
+    max-width: 75%;
+    transition: transform 0.25s ease;
+    border: 5px solid black;
+}
+
+.image-description{
+    text-align: left;
+    margin-right: 45%;
+}
+
+@media screen and (max-width: 1250px) {
+    .devLogIMG:hover{
+        -webkit-transform:scale(2); /* or some other value */
+        transform:scale(1.5);
+    }
+
+    .image-description{
+        margin-top: 10px;
+        margin-right: 0;
+    }
+}
+
+.image-description{
+    font-size: 15px;
+}
