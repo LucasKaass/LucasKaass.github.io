@@ -13,10 +13,7 @@ body {
 }
 
 body {
-    /*background-color: #CCE6E6;*/
-
     background-color: white;
-    display: block;
 }
 
 .hidden {
@@ -107,7 +104,7 @@ section {
 
 .text-home {
     text-align: center;
-    font-family: "Copperplate Gothic Light";
+    font-family: "Copperplate Gothic Light", serif;
     border-bottom: 2px solid black;
 }
 
@@ -122,7 +119,7 @@ section {
 }
 
 .section-main4 {
-    height: 500px;
+    height: 700px;
 }
 
 .text-about-me-wrapper {
@@ -147,6 +144,7 @@ section {
 
 .text-furthermore {
     padding-left: 20px;
+    font-size: 20px;
 }
 
 .text-about-me-wrapper > h1 {
@@ -155,6 +153,7 @@ section {
 
 .text-about-me {
     padding-left: 20px;
+    font-size: 20px;
 }
 
 .text-furthermore-buttons {
@@ -201,7 +200,7 @@ a.active {
 
 section > div > figure > h1 {
     text-align: center;
-    font-family: Consolas;
+    font-family: Consolas, serif;
 }
 
 @media screen and (max-width: 1250px) {
@@ -246,7 +245,7 @@ section > div > figure > h1 {
     }
 
     .project-descr {
-        font-size: 15px;
+        font-size: 20px;
     }
 
 }
@@ -257,8 +256,29 @@ section > div > figure > h1 {
     }
 }
 
+.text-about-me-title{
+    font-size: 40px;
+}
+
+.text-about-me{
+    font-size: 30px;
+}
+
+
+.text-furthermore-title{
+    font-size: 40px;
+}
+
+.text-furthermore{
+    font-size: 30px;
+}
+
+.contact-form{
+    font-size: 30px;
+}
+
 .text-coming-soon {
-    font-family: "Yu Gothic Medium";
+    font-family: "Yu Gothic Medium", serif;
 }
 
 /* Slideshow container */
@@ -349,6 +369,8 @@ section > div > figure > h1 {
     max-width: 650px;
 }
 
+
+
 .contact-form {
     top: 150px;
     max-width: 950px;
@@ -356,7 +378,7 @@ section > div > figure > h1 {
     margin-left: auto;
     margin-right: auto;
     padding: 20px;
-    border: 1px solid #ccc;
+    border: 1px solid red;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
@@ -382,6 +404,7 @@ section > div > figure > h1 {
     border-radius: 3px;
     cursor: pointer;
 }
+
 
 .section-main-footer {
     height: fit-content;

@@ -107,11 +107,12 @@ document.getElementById('contactForm').addEventListener('submit', function (even
 
     // Get the values from the form
     const subject = document.getElementById('subject').value;
+    const name = document.getElementById('name').value;
+    const company = document.getElementById('company').value
     const message = document.getElementById('message').value;
 
-    // Create a mailto link with the subject and message
-    const mailtoLink = `mailto:lucaskaas2@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(message)}`;
+    const emailContent = `Name: ${name}\n${company}\n\n${message}`;
 
-    // Open the user's default email client
-    window.location.href = mailtoLink;
+    // Open the user's default email client and Create a mailto link with the subject and message
+    window.location.href = `mailto:lucaskaas2@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(emailContent)}`;
 });
