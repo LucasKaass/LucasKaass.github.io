@@ -256,24 +256,24 @@ section > div > figure > h1 {
     }
 }
 
-.text-about-me-title{
+.text-about-me-title {
     font-size: 40px;
 }
 
-.text-about-me{
+.text-about-me {
     font-size: 30px;
 }
 
 
-.text-furthermore-title{
+.text-furthermore-title {
     font-size: 40px;
 }
 
-.text-furthermore{
+.text-furthermore {
     font-size: 30px;
 }
 
-.contact-form{
+.contact-form {
     font-size: 30px;
 }
 
@@ -368,7 +368,6 @@ section > div > figure > h1 {
 .project-descr {
     max-width: 650px;
 }
-
 
 
 .contact-form {

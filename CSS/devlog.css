@@ -1,46 +1,53 @@
-.main{
+.main {
     font-size: 25px;
 }
 
-.section-main1{
+.section-main1 {
     height: fit-content;
 }
 
-.section-devLog{
-    height: fit-content;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
+.section-title, .section-description {
     text-align: center;
 }
 
-.devLogIMG{
+.section-devLog {
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+}
+
+.devLogIMG {
     max-width: 75%;
     transition: transform 0.25s ease;
     border: 5px solid black;
+    align-self: center;
 }
 
-.image-description{
+.image-description-1, .image-description-2 {
+    display: flex;
     text-align: left;
     font-size: 40px;
+    margin-left: 12.5%;
+    border-bottom: 5px solid black;
+    font-size: 20px;
 }
 
 @media screen and (max-width: 1250px) {
-    .devLogIMG:hover{
-        transform:scale(1.25);
+    .devLogIMG:hover {
+        transform: scale(1.25);
     }
 
-    .image-description{
+    .image-description {
         margin-top: 10px;
         margin-right: 0;
     }
 
-    .devLogIMG{
+    .devLogIMG {
         max-width: 100%;
     }
 
 }
 
-.image-description{
+.image-description {
     font-size: 15px;
 }
