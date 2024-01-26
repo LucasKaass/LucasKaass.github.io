@@ -23,7 +23,7 @@ link.forEach(el => {
 const data = {
     "engels":
         {
-            "info_titel1": "About me <i class=\"fa-solid fa-circle-info\" style=\"font-size: 15px\"></i>",
+            "info_titel1": "About me <i class=\"fa-solid fa-circle-info\" style=\"font-size: 25px\"></i>",
             "info_content1":
                 "My name is Lucas, and I am a passionate Software Developer. <br> With 4 years of experience as a student, intern, and hobbyist, I have built knowledge in Application Development, Web Development, Databases and scripting. <br> <br> What started as a hobby and interest has now turned into an MBO4 diploma in Software Development, and it doesn't stop there. <br> Because I aspire to expand my expertise and skills, I have recently started my Associate's degree in Software Development at the Amsterdam University of Applied Sciences.",
 
@@ -32,7 +32,7 @@ const data = {
         },
     "nederlands":
         {
-            "info_titel1": "Over mij <i class=\"fa-solid fa-circle-info\" style=\"font-size: 15px\"></i>",
+            "info_titel1": "Over mij <i class=\"fa-solid fa-circle-info\" style=\"font-size: 25px\"></i>",
             "info_content1":
                 "Mijn naam is Lucas, ik ben een gepassioneerde Software Developer. <br> Met 4 jaar ervaring als student, stagiair en hobbyist heb ik een kennis opgebouwd in Applicatie Ontwikkeling, Web Ontwikkeling, Databases en scripting. <br> <br> Wat begonnen is als hobby en interesse heb ik inmiddels omgezet in een MBO4 diploma Software Developer en daar stopt het niet. <br> Omdat ik de wens heb om mijn expertise en skills uit te breiden ben ik sinds kort begonnen aan mijn Associate's degree Software Development aan de Hogeschool van Amsterdam. ",
 
