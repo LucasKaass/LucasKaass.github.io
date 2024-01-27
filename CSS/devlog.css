@@ -32,6 +32,10 @@
     font-size: 20px;
 }
 
+.description-title {
+    margin-left: 12.5%;
+}
+
 @media screen and (max-width: 1250px) {
     .devLogIMG:hover {
         transform: scale(1.25);

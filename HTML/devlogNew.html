@@ -1,10 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <script src="https://kit.fontawesome.com/2a0377810d.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../CSS/main.css">
+    <link rel="stylesheet" href="../CSS/devlog.css">
+    <meta charset="UTF-8">
+    <title>Devlog 3DWorld</title>
+    <script defer src="../JS/main.js"></script>
 </head>
 <body>
-$END$
+
+<header class="navbar-container">
+
+    <nav class="navbar show">
+
+        <div class="navbarmobile">
+
+            <a class="btnmobile" href="../index.html#section-home"><i class="fa-solid fa-house-chimney-window"
+                                                                      style="font-size: 45px; color: black;"></i></a>
+            <a class="btnmobile" href="../index.html#section-about-me"><i class="fa-solid fa-circle-info"
+                                                                          style="font-size: 45px; color: black;"></i></a>
+
+            <i class="fa-solid fa-circle-user" style="font-size: 60px"></i>
+
+            <a class="btnmobile" href="../index.html#section-projects"><i class="fa-regular fa-folder-open"
+                                                                          style="font-size: 45px; color: black"></i></a>
+
+            <a class="btnmobile" href="../index.html#section-contact"><i class="fa-regular fa-address-card"
+                                                                         style="font-size: 45px; color: black;"></i>
+            </a>
+        </div>
+
+        <div class="navbar-pc">
+
+            <a class="btn" href="../index.html#section-home" onclick="scrollToId('section-home') ">Home <i
+                    class="fa-solid fa-house-chimney-window"
+                    style="font-size: 25px"></i></a>
+            <a class="btn" href="../index.html#section-about-me" onclick="scrollToId('section-about-me')">Over mij <i
+                    class="fa-solid fa-circle-info"
+                    style="font-size: 25px"></i></a>
+            <i class="fa-solid fa-circle-user" style="font-size: 50px"></i>
+
+            <a class="btn" href="../index.html#section-projects" onclick="scrollToId('section-projects')">Projecten <i
+                    class="fa-regular fa-folder-open"
+                    style="font-size: 25px"></i></a>
+            <a class="btn" href="../index.html#section-contact">Contact <i class="fa-regular fa-address-card"
+                                                                           style="font-size: 25px"></i> </a>
+        </div>
+    </nav>
+
+</header>
+
+<div class="main">
+
+    <section class="section-main1">
+        <h1 class="text-home hidden">Devlog project 3DWorld</h1>
+        <p class="text-home hidden">Voor dit project is de opdracht om een subscriptie gebaseerde website te maken, <br>
+            waarop mensen 3Dprint-artiesten kunnen steunen DMV van een maandelijkse bijdrage. <br> In deze devlog
+            documenteer ik mijn werk voor dit project.</p>
+    </section>
+
+    <section class="section-devLog">
+        <h1 class="section-title">Subscribe functie <br> (Datum van toepassing: 06-11-23)</h1><br>
+        <h4 class="section-description">Om dit project soepel te laten verlopen, is het natuurlijk de bedoeling dat
+            ingelogde gebruikers kunnen abonneren op een artiest. <br> Mijn taak voor dit project was onder andere het
+            maken van een subscribe functie die de subscriptie van de gebruiker vastlegt.</h4>
+        <!--        <img alt="Project template page image" class="devLogIMG" src="../otherFiles/templateIMG.jpg">-->
+        <h4 class="image-description-1" style="font-size: 20px;">Deze webpagina representeert een artiest vanuit het
+            perspectief van een ingelogde gebruiker. <br> <br> -Als de ingelogde gebruiker zich abbonneert: <br> <br> 1.
+            Wordt er een request naar de backend gestuurd die het desbetreffende request controlleert.<br><br> 1A.
+            Zodien het request valide is, wordt er een SQL querry gestuurd naar de database die de abonnee definitief
+            vastlegt. <br> <br>
+            1B. Als het request niet valide is, wordt het request onderschept en krijgt de gebruiker een foutmelding te
+            zien.<br> <br>
+        </h4>
+
+        <h1 class="description-title">User flow</h1>
+
+        <h4 class="image-description-2">
+            -Als de ingelogde gebruiker het abbonement opzegt: <br> <br> 1. Wordt er eerst gevraagd of de gebruiker de
+            subscriptie wel degelijk wilt opzeggen DMV een prompt om te verzekeren dat het geen verkeerde input kan zijn
+            vanuit de gebruiker. <br><br>
+            1A. Zodien de gebruiker confirmeert dat diegene het abbonement op wilt zeggen wordt er een request naar de
+            backend gestuurd die eerst controlleert of het een valide request is. <br>
+            -Is het een valide request, dan wordt er een query verstuurd naar de database die het abonnement weghaalt.
+            <br>
+            -Is het een invalide request, dan wordt er geen query verstuurd naar de database. <br> <br>
+            1B. Als de gebruiker annuleert. <br>
+            -wordt het proces onderschept en blijft degene geabonneert.
+        </h4>
+    </section>
+
+
+</div>
+
+
 </body>
 </html>
