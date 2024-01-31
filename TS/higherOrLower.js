@@ -64,17 +64,19 @@ function generateRandomNumber() {
     return Math.floor(Math.random() * 15) + 1;
 }
 function giveRandomNumbers() {
-    let composerID1 = generateRandomNumber();
-    let composerID2 = generateRandomNumber();
-    if (composerID1 === composerID2) {
-        console.log(composerID1, composerID2);
-        console.log("Numbers are the same, rerolling");
-        main();
-    }
-    else {
-        console.log(composerID1, composerID2);
-        return [composerID1, composerID2];
-    }
+    let composerID1;
+    let composerID2;
+    do {
+        composerID1 = generateRandomNumber();
+        composerID2 = generateRandomNumber();
+        if (composerID1 === composerID2) {
+            console.log(composerID1, composerID2 + " Numbers are the same, rerolling");
+        }
+        else {
+            console.log(composerID1, composerID2);
+            return [composerID1, composerID2];
+        }
+    } while (true);
 }
 function getComposerData(composerID1, composerID2) {
     const composer1 = composersData.find(composer => composer.id === composerID1);

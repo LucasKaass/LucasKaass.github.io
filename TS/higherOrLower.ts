@@ -80,17 +80,20 @@ function generateRandomNumber(): number {
 }
 
 function giveRandomNumbers(): number[] | undefined {
-    let composerID1: number = generateRandomNumber();
-    let composerID2: number = generateRandomNumber();
+    let composerID1: number;
+    let composerID2: number;
 
-    if (composerID1 === composerID2) {
-        console.log(composerID1, composerID2)
-        console.log("Numbers are the same, rerolling")
-        main();
-    } else {
-        console.log(composerID1, composerID2)
-        return [composerID1, composerID2];
-    }
+    do {
+        composerID1 = generateRandomNumber();
+        composerID2 = generateRandomNumber();
+
+        if (composerID1 === composerID2) {
+            console.log(composerID1, composerID2 + " Numbers are the same, rerolling");
+        } else {
+            console.log(composerID1, composerID2);
+            return [composerID1, composerID2];
+        }
+    } while (true);
 }
 
 
