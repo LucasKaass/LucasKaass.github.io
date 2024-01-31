@@ -61,7 +61,7 @@ function resetScore() {
     }
 }
 function generateRandomNumber() {
-    return Math.floor(Math.random() * 14) + 1;
+    return Math.floor(Math.random() * 15) + 1;
 }
 function giveRandomNumbers() {
     const composerID1 = generateRandomNumber();
