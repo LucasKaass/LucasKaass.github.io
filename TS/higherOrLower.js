@@ -64,11 +64,12 @@ function generateRandomNumber() {
     return Math.floor(Math.random() * 15) + 1;
 }
 function giveRandomNumbers() {
-    const composerID1 = generateRandomNumber();
-    const composerID2 = generateRandomNumber();
+    let composerID1 = generateRandomNumber();
+    let composerID2 = generateRandomNumber();
     if (composerID1 === composerID2) {
-        console.log(composerID1, composerID2 + "Numbers are the same, rerolling");
-        giveRandomNumbers();
+        console.log(composerID1, composerID2);
+        console.log("Numbers are the same, rerolling");
+        main();
     }
     else {
         console.log(composerID1, composerID2);
