@@ -1,0 +1,72 @@
+.section-higherLower1 {
+    height: fit-content;
+    margin-top: 75px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.composerImage {
+    object-fit: cover;
+    min-width: 450px;
+    max-width: 450px;
+}
+
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    border: 2px solid #3498db;
+    border-radius: 5px;
+    color: #3498db;
+    background-color: #ffffff;
+    transition: background-color 0.3s, color 0.3s;
+    height: 20px;
+    margin-top: 100px;
+}
+
+.button:hover {
+    background-color: #3498db;
+    color: #ffffff;
+}
+
+.secondary-button {
+    margin-left: 10px;
+    border-color: #e74c3c;
+    color: #e74c3c;
+}
+
+.secondary-button:hover {
+    background-color: #e74c3c;
+    color: #ffffff;
+}
+
+.borderWin {
+    border: 5px solid limegreen;
+}
+
+.borderLose {
+    border: 5px solid red;
+}
+
+.scoreSection {
+    height: fit-content;
+    display: flex;
+    justify-content: center;
+    font-family: Cambria;
+    font-size: 30px;
+}
+
+@media screen and (max-width: 1452px) {
+    .composerImage {
+        max-width: 300px;
+        min-width: 300px;
+    }
+
+    .composerDescription {
+        font-size: 25px;
+    }
+}
