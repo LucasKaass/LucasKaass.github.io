@@ -3,26 +3,73 @@
  * @description Awesomest game ever
  */
 
-interface Composer {
+const hiddenElements = document.querySelectorAll('.hidden')
+
+let objectData: HigherOrLowerObject[] | undefined;
+
+let amountOfObjects: number;
+
+const composersButton = document.getElementById("composersRadio") as HTMLInputElement;
+const historicalEventsButton = document.getElementById("historicalEventsRadio") as HTMLInputElement;
+const imageRight = document.getElementById('composerImage2')
+const guessEerderButton = document.getElementById('guessEerder') as HTMLButtonElement
+const guessLaterButton = document.getElementById('guessLater') as HTMLButtonElement
+const scoreElement = document.getElementById('score')
+
+function setInitialGameState() {
+    objectData = composersData
+    amountOfObjects = composersData.length
+    main()
+}
+
+function switchData(newData: HigherOrLowerObject[]) {
+    const confirmation = window.confirm('Warning: if you switch, your score will reset. Do you want to proceed?');
+
+    if (confirmation) {
+        objectData = newData;
+        amountOfObjects = newData.length
+        console.log(amountOfObjects)
+        resetScore()
+        main();
+    } else {
+        // Reset the radio button to the previous state
+        composersButton.checked = objectData === composersData;
+        historicalEventsButton.checked = objectData === historicalEventsData;
+    }
+}
+
+composersButton.addEventListener("click", function () {
+    switchData(composersData);
+});
+
+historicalEventsButton.addEventListener("click", function () {
+    switchData(historicalEventsData);
+});
+
+
+interface HigherOrLowerObject {
     id: number;
     name: string;
-    dateOfBirth: string;
+    data: string;
     image: string;
 }
 
-let randomComposerData: Composer[] | undefined;
+let randomObjectData: HigherOrLowerObject[] | undefined;
 
 function main() {
     const randomNumbers = giveRandomNumbers()
 
     if (randomNumbers) {
-        randomComposerData = getComposerData(randomNumbers[0], randomNumbers[1]);
-        displayComposers(randomComposerData[0], randomComposerData[1])
+        randomObjectData = getObjectData(randomNumbers[0], randomNumbers[1]);
+        if (randomObjectData) {
+            displayObjects(randomObjectData[0], randomObjectData[1])
+
+        }
     }
 }
 
 function guessEerder() {
-    if (randomComposerData != null && randomComposerData[0].dateOfBirth > randomComposerData[1].dateOfBirth) {
+    if (randomObjectData != null && randomObjectData[0].data > randomObjectData[1].data) {
         rightGuess()
     } else {
         wrongGuess()
@@ -30,7 +77,7 @@ function guessEerder() {
 }
 
 function guessLater() {
-    if (randomComposerData != null && randomComposerData[0].dateOfBirth < randomComposerData[1].dateOfBirth) {
+    if (randomObjectData != null && randomObjectData[0].data < randomObjectData[1].data) {
         rightGuess()
     } else {
         wrongGuess()
@@ -38,11 +85,11 @@ function guessLater() {
 }
 
 function rightGuess() {
-    if (composerImage) {
-        composerImage.classList.add('borderWin')
+    if (imageRight) {
+        imageRight.classList.add('borderWin')
         updateScoreRightGuess()
         countdownAndExecute(() => {
-            composerImage.classList.remove('borderWin')
+            imageRight.classList.remove('borderWin')
             main()
         });
     }
@@ -58,11 +105,11 @@ function updateScoreRightGuess() {
 }
 
 function wrongGuess() {
-    if (composerImage) {
+    if (imageRight) {
         resetScore()
-        composerImage.classList.add('borderLose')
+        imageRight.classList.add('borderLose')
         countdownAndExecute(() => {
-            composerImage.classList.remove('borderLose')
+            imageRight.classList.remove('borderLose')
             main()
         })
     }
@@ -76,56 +123,54 @@ function resetScore() {
 }
 
 function generateRandomNumber(): number {
-    return Math.floor(Math.random() * 15) + 1;
+    return Math.floor(Math.random() * amountOfObjects) + 1;
 }
 
 function giveRandomNumbers(): number[] | undefined {
-    let composerID1: number;
-    let composerID2: number;
+    let objectId1: number;
+    let objectId2: number;
 
     do {
-        composerID1 = generateRandomNumber();
-        composerID2 = generateRandomNumber();
+        objectId1 = generateRandomNumber();
+        objectId2 = generateRandomNumber();
 
-        if (composerID1 === composerID2) {
-            console.log(composerID1, composerID2 + " Numbers are the same, rerolling");
+        if (objectId1 === objectId2) {
+            console.log(objectId1, objectId2 + " Numbers are the same, rerolling");
         } else {
-            console.log(composerID1, composerID2);
-            return [composerID1, composerID2];
+            console.log(objectId1, objectId2);
+            return [objectId1, objectId2];
         }
     } while (true);
 }
 
 
-function getComposerData(composerID1: number, composerID2: number): Composer[] {
-    const composer1 = composersData.find(composer => composer.id === composerID1);
-    const composer2 = composersData.find(composer => composer.id === composerID2);
-
-    return [composer1, composer2].filter(composer => composer !== undefined) as Composer[];
-}
-
-function displayComposers(composer1: Composer | undefined, composer2: Composer | undefined) {
-    const imageElementComposer1 = document.getElementById('composerImage1') as HTMLImageElement | null
-    const imageElementComposer2 = document.getElementById('composerImage2') as HTMLImageElement | null
-    const descriptionElementComposer1 = document.getElementById('composerDescription1') as HTMLElement
-    const descriptionElementComposer2 = document.getElementById('composerDescription2') as HTMLElement
-
-    if (composer1 && imageElementComposer1) {
-        imageElementComposer1.src = composer1.image;
-        descriptionElementComposer1.innerText = composer1.name + ', Geboortedatum: ' + composer1.dateOfBirth
-    }
-
-    if (composer2 && imageElementComposer2) {
-        imageElementComposer2.src = composer2.image;
-        descriptionElementComposer2.innerText = composer2.name
+function getObjectData(objectID1: number, objectID2: number): HigherOrLowerObject[] | undefined {
+    if (objectData) {
+        const object1 = objectData.find(object => object.id === objectID1);
+        const object2 = objectData.find(object => object.id === objectID2);
+        return [object1, object2].filter(HigherOrLowerObject => HigherOrLowerObject !== undefined) as HigherOrLowerObject[];
     }
 
 }
 
-const composerImage = document.getElementById('composerImage2')
-const guessEerderButton = document.getElementById('guessEerder') as HTMLButtonElement
-const guessLaterButton = document.getElementById('guessLater') as HTMLButtonElement
-const scoreElement = document.getElementById('score')
+function displayObjects(object1: HigherOrLowerObject | undefined, object2: HigherOrLowerObject | undefined) {
+    const imageElementObject1 = document.getElementById('composerImage1') as HTMLImageElement | null
+    const imageElementObject2 = document.getElementById('composerImage2') as HTMLImageElement | null
+    const descriptionElementObject1 = document.getElementById('composerDescription1') as HTMLElement
+    const descriptionElementObject2 = document.getElementById('composerDescription2') as HTMLElement
+
+    if (object1 && imageElementObject1) {
+        imageElementObject1.src = object1.image;
+        descriptionElementObject1.innerText = object1.name
+    }
+
+    if (object2 && imageElementObject2) {
+        imageElementObject2.src = object2.image;
+        descriptionElementObject2.innerText = object2.name
+    }
+
+}
+
 
 if (guessEerderButton) {
     guessEerderButton.addEventListener('click', guessEerder)
@@ -134,101 +179,222 @@ if (guessLaterButton) {
     guessLaterButton.addEventListener('click', guessLater)
 }
 
-window.addEventListener('load', main);
-
-const composersData: Composer[] = [
+const composersData: HigherOrLowerObject[] = [
 
     {
         "id": 1,
         "name": "Ludwig van Beethoven",
-        "dateOfBirth": "1770-12-16",
+        "data": "1770-12-16",
         "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Ludwig_Van_Beethoven_LCCN2003663902.jpg/220px-Ludwig_Van_Beethoven_LCCN2003663902.jpg"
     },
     {
         "id": 2,
         "name": "Wolfgang Amadeus Mozart",
-        "dateOfBirth": "1756-01-27",
+        "data": "1756-01-27",
         "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Portrait_of_Wolfgang_Amadeus_Mozart_at_the_age_of_13_in_Verona%2C_1770.jpg/220px-Portrait_of_Wolfgang_Amadeus_Mozart_at_the_age_of_13_in_Verona%2C_1770.jpg"
     },
     {
         "id": 3,
         "name": "Johann Sebastian Bach",
-        "dateOfBirth": "1685-03-31",
+        "data": "1685-03-31",
         "image": "https://upload.wikimedia.org/wikipedia/commons/6/6a/Johann_Sebastian_Bach.jpg"
     },
     {
         "id": 4,
         "name": "Pyotr Ilyich Tchaikovsky",
-        "dateOfBirth": "1840-05-07",
+        "data": "1840-05-07",
         "image": "https://assets.classicfm.com/2021/50/tchaikovsky-1639562612-editorial-long-form-0.jpg"
     },
     {
         "id": 5,
         "name": "Johannes Brahms",
-        "dateOfBirth": "1833-05-07",
+        "data": "1833-05-07",
         "image": "https://www.meisterdrucke.us/kunstwerke/1200w/Ludwig%20Michalek%20-%20Portrait%20of%20Johannes%20Brahms%201891%20-%20(MeisterDrucke-630825).jpg"
     },
     {
         "id": 6,
         "name": "Claude Debussy",
-        "dateOfBirth": "1862-08-22",
+        "data": "1862-08-22",
         "image": "https://medias.gazette-drouot.com/prod/medias/mediatheque/85952.jpg"
     },
     {
         "id": 7,
         "name": "Maurice Ravel",
-        "dateOfBirth": "1875-03-07",
+        "data": "1875-03-07",
         "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Maurice_Ravel_1925.jpg/1200px-Maurice_Ravel_1925.jpg"
     },
     {
         "id": 8,
         "name": "John Williams",
-        "dateOfBirth": "1932-02-08",
+        "data": "1932-02-08",
         "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/John_Williams_with_Boston_Pops-1.jpg/330px-John_Williams_with_Boston_Pops-1.jpg"
     },
     {
         "id": 9,
         "name": "Hans Zimmer",
-        "dateOfBirth": "1957-09-12",
+        "data": "1957-09-12",
         "image": "https://waldorfmusic.com/wp-content/uploads/2023/01/Hans-Zimmer.png"
     },
     {
         "id": 10,
         "name": "Ennio Morricone",
-        "dateOfBirth": "1928-11-10",
+        "data": "1928-11-10",
         "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQt1vbfWTlFBV24ZbukUdlQGR25Vz32Tnb9PA&usqp=CAU"
     },
     {
         "id": 11,
         "name": "Erik Satie",
-        "dateOfBirth": "1866-05-17",
+        "data": "1866-05-17",
         "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Erik_Satie_en_1909.PNG/150px-Erik_Satie_en_1909.PNG"
     },
     {
         "id": 12,
         "name": "Yiruma",
-        "dateOfBirth": "1978-02-15",
+        "data": "1978-02-15",
         "image": "https://www.udiscovermusic.com/wp-content/uploads/2020/08/Yiruma_credit_UniversalMusicGroupKorea.jpg"
     },
     {
         "id": 13,
         "name": "Ludovico Einaudi",
-        "dateOfBirth": "1955-11-23",
+        "data": "1955-11-23",
         "image": "https://upload.wikimedia.org/wikipedia/commons/e/e5/Ludovico_Einaudi_in_Tehran_12_%28cropped%292.jpg"
     },
     {
         "id": 14,
         "name": "Yann Tiersen",
-        "dateOfBirth": "1970-06-23",
+        "data": "1970-06-23",
         "image": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2019/02/21/10/yann-tiersen.jpg?width=1200"
     },
     {
         "id": 15,
         "name": "Frédéric Chopin",
-        "dateOfBirth": "1810-03-01",
+        "data": "1810-03-01",
         "image": "https://assets.classicfm.com/2009/04/frederic-chopin-1233248000-view-0.jpg"
     }
 
+]
+
+const historicalEventsData: HigherOrLowerObject[] = [
+    {
+        id: 1,
+        name: "The cold war (start)",
+        data: "1947-03-12",
+        image: "https://www.forces.net/sites/default/files/Cold%20War%20image%20Soviet%20Union%20vs%20USA%20visual%20CREDIT%20ALAMY.jpg"
+    },
+    {
+        id: 2,
+        name: "Battle of Waterloo",
+        data: "1815-06-18",
+        image: "https://assets.editorial.aetnd.com/uploads/2009/11/gettyimages-599962817.jpg"
+    },
+    {
+        id: 3,
+        name: "Wright Brothers' First Powered Flight",
+        data: "1903-12-17",
+        image: "https://cdn-global-hk.hobbyking.com/media/wysiwyg/Blog/WrightBrother_HistoryCollection.jpg"
+    },
+    {
+        id: 4,
+        name: "Titanic Sinks",
+        data: "1912-04-15",
+        image: "https://hips.hearstapps.com/hmg-prod/images/ngh00003364-6491b92f7399f.jpg"
+    },
+    {
+        id: 5,
+        name: "D-Day",
+        data: "1944-06-06",
+        image: "https://assets.editorial.aetnd.com/uploads/2009/10/d-day-gettyimages-2696319.jpg"
+    },
+    {
+        id: 6,
+        name: "Atomic Bombing of Hiroshima",
+        data: "1945-08-06",
+        image: "https://cdn.britannica.com/92/217192-138-CC625581/Hiroshima-what-happened-75th-anniversary-atomic-bombing-Hiroshima-Japan-World-War-II.jpg"
+    },
+    {
+        id: 7,
+        name: "Moon Landing",
+        data: "1969-07-20",
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Eugene_Cernan_at_the_LM%2C_Apollo_17.jpg/800px-Eugene_Cernan_at_the_LM%2C_Apollo_17.jpg"
+    },
+    {
+        id: 8,
+        name: "Fall of the Berlin Wall",
+        data: "1989-11-09",
+        image: "https://junior.scholastic.com/content/dam/classroom-magazines/junior-scholastic/issues/2019-20/111119/fall-of-the-berlin-wall/JS5-20191111-News-Wall-PO.jpg"
+    },
+    {
+        id: 9,
+        name: "Start of world war 1",
+        data: "1914-07-28",
+        image: "https://assets.editorial.aetnd.com/uploads/2018/08/outbreak-of-world-war-i-gettyimages-506127736.jpg"
+    },
+    {
+        id: 10,
+        name: "9/11 Terrorist Attacks",
+        data: "2001-09-11",
+        image: "https://s.abcnews.com/images/US/remembering-9-11-attack-02-gty-jef-180910_hpEmbed_sl_23x15_1600.jpg?w=1600"
+    },
+    {
+        id: 11,
+        name: "JFK assassination",
+        data: "1963-11-22",
+        image: "https://daily.jstor.org/wp-content/uploads/2023/04/jfks_assassination_and_doing_your_own_research_1050x700.jpg"
+    },
+    {
+        id: 12,
+        name: "Napoleonic wars",
+        data: "1803-05-05",
+        image: "https://images.wondershare.com/edrawmax/article2023/napoleonic-wars-timeline/napoleon.jpg"
+    },
+    {
+        id: 13,
+        name: "Chernobyl Nuclear Disaster",
+        data: "1986-04-26",
+        image: "https://static-cdn.sr.se/images/478/3674457_2048_1152.jpg?preset=1024x576"
+    },
+    {
+        id: 14,
+        name: "Assassination of Julius Caesar",
+        data: "0000-03-15",
+        image: "https://upload.wikimedia.org/wikipedia/commons/e/eb/Vincenzo_Camuccini_-_La_morte_di_Cesare.jpg"
+    },
+    {
+        id: 15,
+        name: "French Revolution Begins",
+        data: "1789-05-05",
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Anonymous_-_Prise_de_la_Bastille.jpg/640px-Anonymous_-_Prise_de_la_Bastille.jpg"
+    },
+    {
+        id: 16,
+        name: "Great Fire of London",
+        data: "1666-09-02",
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Great_Fire_London.jpg/1200px-Great_Fire_London.jpg"
+    },
+    {
+        id: 17,
+        name: "Eruption of Mount Vesuvius (Destruction of Pompeii)",
+        data: "0001-08-24",
+        image: "https://cdn.thecollector.com/wp-content/uploads/2023/03/mount-vesuvius-volcano-eruption-etching.jpg"
+    },
+    {
+        id: 18,
+        name: "Fall of Constantinople",
+        data: "1453-05-29",
+        image: "https://miro.medium.com/v2/resize:fit:662/1*0BqqcG9qcGReFKxtcy5i9Q.jpeg"
+    },
+    {
+        id: 19,
+        name: "Industrial revolution",
+        data: "1830-01-01",
+        image: "https://upload.wikimedia.org/wikipedia/commons/d/dc/Powerloom_weaving_in_1835.jpg"
+    },
+    {
+        id: 20,
+        name: "Cuban Missile Crisis",
+        data: "1962-10-16",
+        image: "https://cdn.britannica.com/68/146468-050-1DA4EC07/Soviet-military-buildup-Cuba-1962.jpg"
+    }
 ]
 
 function countdownAndExecute(callback: () => void): void {
@@ -259,5 +425,8 @@ const observer = new IntersectionObserver((entries) => {
     })
 });
 
-const hiddenElements = document.querySelectorAll('.hidden')
+
 hiddenElements.forEach((el) => observer.observe(el))
+
+
+window.addEventListener('load', setInitialGameState);

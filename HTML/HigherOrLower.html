@@ -55,13 +55,19 @@
 <div class="main">
 
     <section class="section-main1">
-        <h1 class="text-home hidden" style="font-size: 50px; margin-top: 25px;">Eerder of later?</h1>
-        <p class="text-home hidden" style="font-size:40px">Ik presenteer hierbij een minigame! <br> Raad of de componist
-            aan de rechter kant
-            eerder of later is geboren! Geef je een goed antwoord, dan scoor je een punt.</p>
+        <h1 class="text-home hidden" style="font-size: 50px; margin-top: 25px;">Sooner or later?</h1>
+        <p class="text-home hidden" style="font-size:40px">I present: my own minigame. <br> Guess if the person or event
+            to the right was born or happened later or sooner.<br> If you guess right, you earn a point.</p>
     </section>
 
     <section class="scoreSection">
+        <div class="radio-group">
+            <input type="radio" id="composersRadio" name="group" checked>
+            <label for="composersRadio">Composers</label>
+
+            <input type="radio" id="historicalEventsRadio" name="group">
+            <label for="historicalEventsRadio">Historical events</label>
+        </div>
         <p class="score" id="score">SCORE: 0</p>
     </section>
 
@@ -71,7 +77,7 @@
             <img id="composerImage1" class="composerImage">
         </div>
 
-        <button class="button" id="guessEerder">Eerder</button>
+        <button class="button" id="guessEerder">Sooner</button>
         <button class="button secondary-button" id="guessLater">Later</button>
 
         <div class="composerContainer">
@@ -79,6 +85,14 @@
             <img id="composerImage2" class="composerImage">
         </div>
     </section>
+
+    <footer class="section-main-footer">
+        <h1 class="text-coming-soon hidden" style="text-align: center"><i class="fa-solid fa-triangle-exclamation"></i>
+            More coming soon <i class="fa-solid fa-triangle-exclamation"></i></h1>
+        <h2 class="hidden" style="text-align: center; font-family: 'Yu Gothic Light',serif">This site is under active
+            development</h2>
+        <h3 style="text-align: center">©Lucas Kaas. All rights reserved.</h3>
+    </footer>
 
 </div>
 
