@@ -6,21 +6,21 @@
     justify-content: space-evenly;
 }
 
-.composerImage {
+.composerImage, .composerImage2 {
     object-fit: cover;
-    min-width: 450px;
-    max-width: 450px;
+    min-width: 550px;
+    max-width: 550px;
 }
 
 .button {
     display: inline-block;
-    padding: 10px 20px;
-    font-size: 16px;
+    padding: 20px 35px;
+    font-size: 25px;
     text-align: center;
     text-decoration: none;
     cursor: pointer;
     border: 2px solid #3498db;
-    border-radius: 5px;
+    border-radius: 10px;
     color: #3498db;
     background-color: #ffffff;
     transition: background-color 0.3s, color 0.3s;
@@ -62,14 +62,20 @@
 }
 
 @media screen and (max-width: 1452px) {
-    .composerImage {
-        max-width: 300px;
-        min-width: 300px;
+    .composerImage, .composerImage2 {
+        max-width: 350px;
+        min-width: 350px;
     }
 
     .composerDescription {
         font-size: 25px;
     }
+
+    .button {
+        padding: 20px 50px;
+        font-size: 30px;
+    }
+
 }
 
 body {
@@ -87,7 +93,7 @@ body {
 
 .radio-group label {
     margin: 0 10px;
-    font-size: 16px;
+    font-size: 25px;
 }
 
 .radio-group input[type="radio"] {
@@ -106,3 +112,5 @@ body {
     background-color: #3498db;
     color: #fff;
 }
+
+

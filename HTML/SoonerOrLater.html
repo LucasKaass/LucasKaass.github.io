@@ -62,14 +62,19 @@
 
     <section class="scoreSection">
         <div class="radio-group">
-            <input type="radio" id="composersRadio" name="group" checked>
+            <input type="radio" id="composersRadio" name="group" checked class="buttonGamemode">
             <label for="composersRadio">Composers</label>
 
-            <input type="radio" id="historicalEventsRadio" name="group">
+            <input type="radio" id="historicalEventsRadio" name="group" class="buttonGamemode">
             <label for="historicalEventsRadio">Historical events</label>
         </div>
         <p class="score" id="score">SCORE: 0</p>
     </section>
+
+    <div class="buttonSection">
+        <button class="button" id="guessEerder">Sooner</button>
+        <button class="button secondary-button" id="guessLater">Later</button>
+    <div>
 
     <section class="section-higherLower1">
         <div class="composerContainer">
@@ -77,12 +82,9 @@
             <img id="composerImage1" class="composerImage">
         </div>
 
-        <button class="button" id="guessEerder">Sooner</button>
-        <button class="button secondary-button" id="guessLater">Later</button>
-
         <div class="composerContainer">
             <p id="composerDescription2" class="composerDescription"></p>
-            <img id="composerImage2" class="composerImage">
+            <img id="composerImage2" class="composerImage2">
         </div>
     </section>
 
