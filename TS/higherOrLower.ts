@@ -123,8 +123,8 @@ function displayComposers(composer1: Composer | undefined, composer2: Composer |
 }
 
 const composerImage = document.getElementById('composerImage2')
-const guessEerderButton = document.getElementById('guessEerder')
-const guessLaterButton = document.getElementById('guessLater')
+const guessEerderButton = document.getElementById('guessEerder') as HTMLButtonElement
+const guessLaterButton = document.getElementById('guessLater') as HTMLButtonElement
 const scoreElement = document.getElementById('score')
 
 if (guessEerderButton) {
@@ -234,11 +234,16 @@ const composersData: Composer[] = [
 function countdownAndExecute(callback: () => void): void {
     let secondsRemaining = 1;
 
+    guessEerderButton.disabled = true;
+    guessLaterButton.disabled = true;
+
     const countdownInterval = setInterval(() => {
         secondsRemaining--;
 
         if (secondsRemaining < 0) {
             clearInterval(countdownInterval);
+            guessEerderButton.disabled = false;
+            guessLaterButton.disabled = false
             callback(); // Execute the provided callback after 3 seconds
         }
     }, 1000); // Update every 1 second

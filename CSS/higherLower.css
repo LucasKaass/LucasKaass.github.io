@@ -24,7 +24,7 @@
     color: #3498db;
     background-color: #ffffff;
     transition: background-color 0.3s, color 0.3s;
-    height: 20px;
+    height: fit-content;
     margin-top: 100px;
 }
 
