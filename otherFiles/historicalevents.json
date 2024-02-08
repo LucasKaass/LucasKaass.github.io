@@ -1,0 +1,122 @@
+[
+  {
+    "id": 0,
+    "name": "The cold war (start)",
+    "data": "1947-03-12",
+    "image": "https://www.forces.net/sites/default/files/Cold%20War%20image%20Soviet%20Union%20vs%20USA%20visual%20CREDIT%20ALAMY.jpg"
+  },
+  {
+    "id": 1,
+    "name": "Battle of Waterloo",
+    "data": "1815-06-18",
+    "image": "https://assets.editorial.aetnd.com/uploads/2009/11/gettyimages-599962817.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Wright Brothers' First Powered Flight",
+    "data": "1903-12-17",
+    "image": "https://cdn-global-hk.hobbyking.com/media/wysiwyg/Blog/WrightBrother_HistoryCollection.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Titanic Sinks",
+    "data": "1912-04-15",
+    "image": "https://hips.hearstapps.com/hmg-prod/images/ngh00003364-6491b92f7399f.jpg"
+  },
+  {
+    "id": 4,
+    "name": "D-Day",
+    "data": "1944-06-06",
+    "image": "https://assets.editorial.aetnd.com/uploads/2009/10/d-day-gettyimages-2696319.jpg"
+  },
+  {
+    "id": 5,
+    "name": "Atomic Bombing of Hiroshima",
+    "data": "1945-08-06",
+    "image": "https://cdn.britannica.com/92/217192-138-CC625581/Hiroshima-what-happened-75th-anniversary-atomic-bombing-Hiroshima-Japan-World-War-II.jpg"
+  },
+  {
+    "id": 6,
+    "name": "Moon Landing",
+    "data": "1969-07-20",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Eugene_Cernan_at_the_LM%2C_Apollo_17.jpg/800px-Eugene_Cernan_at_the_LM%2C_Apollo_17.jpg"
+  },
+  {
+    "id": 7,
+    "name": "Fall of the Berlin Wall",
+    "data": "1989-11-09",
+    "image": "https://junior.scholastic.com/content/dam/classroom-magazines/junior-scholastic/issues/2019-20/111119/fall-of-the-berlin-wall/JS5-20191111-News-Wall-PO.jpg"
+  },
+  {
+    "id": 8,
+    "name": "Start of world war 1",
+    "data": "1914-07-28",
+    "image": "https://assets.editorial.aetnd.com/uploads/2018/08/outbreak-of-world-war-i-gettyimages-506127736.jpg"
+  },
+  {
+    "id": 9,
+    "name": "9/11 Terrorist Attacks",
+    "data": "2001-09-11",
+    "image": "https://s.abcnews.com/images/US/remembering-9-11-attack-02-gty-jef-180910_hpEmbed_sl_23x15_1600.jpg?w=1600"
+  },
+  {
+    "id": 10,
+    "name": "JFK assassination",
+    "data": "1963-11-22",
+    "image": "https://daily.jstor.org/wp-content/uploads/2023/04/jfks_assassination_and_doing_your_own_research_1050x700.jpg"
+  },
+  {
+    "id": 11,
+    "name": "Napoleonic wars",
+    "data": "1803-05-05",
+    "image": "https://images.wondershare.com/edrawmax/article2023/napoleonic-wars-timeline/napoleon.jpg"
+  },
+  {
+    "id": 12,
+    "name": "Chernobyl Nuclear Disaster",
+    "data": "1986-04-26",
+    "image": "https://static-cdn.sr.se/images/478/3674457_2048_1152.jpg?preset=1024x576"
+  },
+  {
+    "id": 13,
+    "name": "Assassination of Julius Caesar",
+    "data": "0000-03-15",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/e/eb/Vincenzo_Camuccini_-_La_morte_di_Cesare.jpg"
+  },
+  {
+    "id": 14,
+    "name": "French Revolution Begins",
+    "data": "1789-05-05",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Anonymous_-_Prise_de_la_Bastille.jpg/640px-Anonymous_-_Prise_de_la_Bastille.jpg"
+  },
+  {
+    "id": 15,
+    "name": "Great Fire of London",
+    "data": "1666-09-02",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Great_Fire_London.jpg/1200px-Great_Fire_London.jpg"
+  },
+  {
+    "id": 16,
+    "name": "Eruption of Mount Vesuvius (Destruction of Pompeii)",
+    "data": "0001-08-24",
+    "image": "https://cdn.thecollector.com/wp-content/uploads/2023/03/mount-vesuvius-volcano-eruption-etching.jpg"
+  },
+  {
+    "id": 17,
+    "name": "Fall of Constantinople",
+    "data": "1453-05-29",
+    "image": "https://miro.medium.com/v2/resize:fit:662/1*0BqqcG9qcGReFKxtcy5i9Q.jpeg"
+  },
+  {
+    "id": 18,
+    "name": "Industrial revolution",
+    "data": "1830-01-01",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/d/dc/Powerloom_weaving_in_1835.jpg"
+  },
+  {
+    "id": 19,
+    "name": "Cuban Missile Crisis",
+    "data": "1962-10-16",
+    "image": "https://cdn.britannica.com/68/146468-050-1DA4EC07/Soviet-military-buildup-Cuba-1962.jpg"
+  }
+]

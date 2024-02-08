@@ -111,8 +111,23 @@ document.getElementById('contactForm').addEventListener('submit', function (even
     const company = document.getElementById('company').value
     const message = document.getElementById('message').value;
 
-    const emailContent = `Name: ${name}\n${company}\n\n${message}`;
-
-    // Open the user's default email client and Create a mailto link with the subject and message
-    window.location.href = `mailto:lucaskaas2@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(emailContent)}`;
+    if (checkEmail(subject, name, company, message) === false) {
+        window.alert('Please fill in all required form data.')
+    } else {
+        const emailContent = `Name: ${name}\n${company}\n\n${message}`;
+        // Open the user's default email client and Create a mailto link with the subject and message
+        window.location.href = `mailto:lucaskaas2@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(emailContent)}`;
+    }
 });
+
+function checkEmail(subject, name, company, message) {
+    if (subject === null || subject === " " || subject === undefined) {
+        return false;
+    }
+    if (name === null || name === " " || name === undefined) {
+        return false;
+    }
+    if (message === null || name === " " || name === undefined) {
+        return false;
+    }
+}

@@ -1,92 +1,92 @@
 [
   {
-    "id": 1,
+    "id": 0,
     "name": "Ludwig van Beethoven",
-    "dateOfBirth": "1770-12-16",
+    "data": "1770-12-16",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Ludwig_Van_Beethoven_LCCN2003663902.jpg/220px-Ludwig_Van_Beethoven_LCCN2003663902.jpg"
   },
   {
-    "id": 2,
+    "id": 1,
     "name": "Wolfgang Amadeus Mozart",
-    "dateOfBirth": "1756-01-27",
+    "data": "1756-01-27",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Portrait_of_Wolfgang_Amadeus_Mozart_at_the_age_of_13_in_Verona%2C_1770.jpg/220px-Portrait_of_Wolfgang_Amadeus_Mozart_at_the_age_of_13_in_Verona%2C_1770.jpg"
   },
   {
-    "id": 3,
+    "id": 2,
     "name": "Johann Sebastian Bach",
-    "dateOfBirth": "1685-03-31",
+    "data": "1685-03-31",
     "image": "https://upload.wikimedia.org/wikipedia/commons/6/6a/Johann_Sebastian_Bach.jpg"
   },
   {
-    "id": 4,
+    "id": 3,
     "name": "Pyotr Ilyich Tchaikovsky",
-    "dateOfBirth": "1840-05-07",
+    "data": "1840-05-07",
     "image": "https://assets.classicfm.com/2021/50/tchaikovsky-1639562612-editorial-long-form-0.jpg"
   },
   {
-    "id": 5,
+    "id": 4,
     "name": "Johannes Brahms",
-    "dateOfBirth": "1833-05-07",
+    "data": "1833-05-07",
     "image": "https://www.meisterdrucke.us/kunstwerke/1200w/Ludwig%20Michalek%20-%20Portrait%20of%20Johannes%20Brahms%201891%20-%20(MeisterDrucke-630825).jpg"
   },
   {
-    "id": 6,
+    "id": 5,
     "name": "Claude Debussy",
-    "dateOfBirth": "1862-08-22",
+    "data": "1862-08-22",
     "image": "https://medias.gazette-drouot.com/prod/medias/mediatheque/85952.jpg"
   },
   {
-    "id": 7,
+    "id": 6,
     "name": "Maurice Ravel",
-    "dateOfBirth": "1875-03-07",
+    "data": "1875-03-07",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Maurice_Ravel_1925.jpg/1200px-Maurice_Ravel_1925.jpg"
   },
   {
-    "id": 9,
+    "id": 7,
     "name": "John Williams",
-    "dateOfBirth": "1932-02-08",
+    "data": "1932-02-08",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/John_Williams_with_Boston_Pops-1.jpg/330px-John_Williams_with_Boston_Pops-1.jpg"
   },
   {
-    "id": 10,
+    "id": 8,
     "name": "Hans Zimmer",
-    "dateOfBirth": "1957-09-12",
+    "data": "1957-09-12",
     "image": "https://waldorfmusic.com/wp-content/uploads/2023/01/Hans-Zimmer.png"
   },
   {
-    "id": 12,
+    "id": 9,
     "name": "Ennio Morricone",
-    "dateOfBirth": "1928-11-10",
+    "data": "1928-11-10",
     "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQt1vbfWTlFBV24ZbukUdlQGR25Vz32Tnb9PA&usqp=CAU"
   },
   {
-    "id": 13,
+    "id": 10,
     "name": "Erik Satie",
-    "dateOfBirth": "1866-05-17",
+    "data": "1866-05-17",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Erik_Satie_en_1909.PNG/150px-Erik_Satie_en_1909.PNG"
   },
   {
-    "id": 14,
+    "id": 11,
     "name": "Yiruma",
-    "dateOfBirth": "1978-02-15",
+    "data": "1978-02-15",
     "image": "https://www.udiscovermusic.com/wp-content/uploads/2020/08/Yiruma_credit_UniversalMusicGroupKorea.jpg"
   },
   {
-    "id": 15,
+    "id": 12,
     "name": "Ludovico Einaudi",
-    "dateOfBirth": "1955-11-23",
+    "data": "1955-11-23",
     "image": "https://upload.wikimedia.org/wikipedia/commons/e/e5/Ludovico_Einaudi_in_Tehran_12_%28cropped%292.jpg"
   },
   {
-    "id": 16,
+    "id": 13,
     "name": "Yann Tiersen",
-    "dateOfBirth": "1970-06-23",
+    "data": "1970-06-23",
     "image": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2019/02/21/10/yann-tiersen.jpg?width=1200"
   },
   {
-    "id": 17,
+    "id": 14,
     "name": "Frédéric Chopin",
-    "dateOfBirth": "1810-03-01",
+    "data": "1810-03-01",
     "image": "https://assets.classicfm.com/2009/04/frederic-chopin-1233248000-view-0.jpg"
   }
 ]
