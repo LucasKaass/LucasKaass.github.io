@@ -1,175 +1,192 @@
 "use strict";
-var objectData;
-var composersData;
-var historicalEventsData;
-var composersButton = document.getElementById("composersRadio");
-var historicalEventsButton = document.getElementById("historicalEventsRadio");
-var imageRight = document.getElementById('composerImage2');
-var guessEerderButton = document.getElementById('guessEerder');
-var guessLaterButton = document.getElementById('guessLater');
-var scoreElement = document.getElementById('score');
-var amountOfObjects;
-var randomObjectData;
-var score = 0;
-/* Event Listeners */
-composersButton.addEventListener("click", function () {
-    switchData(composersData);
-});
-historicalEventsButton.addEventListener("click", function () {
-    switchData(historicalEventsData);
-});
-if (guessEerderButton) {
-    guessEerderButton.addEventListener('click', guessEerder);
-}
-if (guessLaterButton) {
-    guessLaterButton.addEventListener('click', guessLater);
-}
-/* Functions */
-function fetchJSONFile(url, callback) {
-    fetch(url)
-        .then(function (response) { return response.json(); })
-        .then(function (fetchedData) {
-        callback(fetchedData);
-    })
-        .catch(function (error) { return console.error('Error fetching JSON:', error); });
-}
-function handleComposerData(fetchedData) {
-    composersData = fetchedData;
-    setInitialGameState(fetchedData);
-}
-function handleHistoricalEventData(fetchedData) {
-    historicalEventsData = fetchedData;
-}
-function setInitialGameState(fetchedData) {
-    objectData = fetchedData;
-    if (composersData != null) {
-        amountOfObjects = composersData.length;
-        main();
+var SoonerOrLaterGame = /** @class */ (function () {
+    function SoonerOrLaterGame() {
+        this.composersData = [];
+        this.historicalEventsData = [];
+        this.amountOfObjects = 0;
+        this.score = 0;
+        this.composersButton = document.getElementById("composersRadio");
+        this.historicalEventsButton = document.getElementById("historicalEventsRadio");
+        this.imageRight = document.getElementById('composerImage2');
+        this.guessEerderButton = document.getElementById('guessEerder');
+        this.guessLaterButton = document.getElementById('guessLater');
+        this.scoreElement = document.getElementById('score');
+        this.init();
     }
-}
-function switchData(newData) {
-    var confirmation = window.confirm('Warning: if you switch, your score will reset. Do you want to proceed?');
-    if (confirmation) {
-        objectData = newData;
-        amountOfObjects = newData.length;
-        resetScore();
-        main();
-    }
-    else {
-        composersButton.checked = objectData === composersData;
-        historicalEventsButton.checked = objectData === historicalEventsData;
-    }
-}
-function main() {
-    var randomNumbers = giveRandomNumbers();
-    if (randomNumbers) {
-        randomObjectData = getObjectData(randomNumbers[0], randomNumbers[1]);
-        if (randomObjectData) {
-            displayObjects(randomObjectData[0], randomObjectData[1]);
+    SoonerOrLaterGame.prototype.init = function () {
+        var _this = this;
+        this.composersButton.addEventListener("click", function () {
+            _this.switchData(_this.composersData);
+        });
+        this.historicalEventsButton.addEventListener("click", function () {
+            _this.switchData(_this.historicalEventsData);
+        });
+        if (this.guessEerderButton) {
+            this.guessEerderButton.addEventListener('click', this.guessEerder.bind(this));
         }
-    }
-}
-function guessEerder() {
-    if (randomObjectData != null && randomObjectData[0].data > randomObjectData[1].data) {
-        rightGuess();
-    }
-    else {
-        wrongGuess();
-    }
-}
-function guessLater() {
-    if (randomObjectData && randomObjectData[0] && randomObjectData[1] != null && randomObjectData[0].data < randomObjectData[1].data) {
-        rightGuess();
-    }
-    else {
-        wrongGuess();
-    }
-}
-function rightGuess() {
-    if (imageRight) {
-        imageRight.classList.add('borderWin');
-        updateScoreRightGuess();
-        countdownAndExecute(function () {
-            imageRight.classList.remove('borderWin');
-            main();
+        if (this.guessLaterButton) {
+            this.guessLaterButton.addEventListener('click', this.guessLater.bind(this));
+        }
+        window.addEventListener('load', function () {
+            _this.fetchJSONFile('/otherFiles/composers.json', _this.handleComposerData.bind(_this));
+            _this.fetchJSONFile('/otherFiles/historicalevents.json', _this.handleHistoricalEventData.bind(_this));
         });
-    }
-}
-function updateScoreRightGuess() {
-    if (scoreElement) {
-        score = score + 1;
-        scoreElement.innerText = 'SCORE: ' + score;
-    }
-}
-function wrongGuess() {
-    if (imageRight) {
-        resetScore();
-        imageRight.classList.add('borderLose');
-        countdownAndExecute(function () {
-            imageRight.classList.remove('borderLose');
-            main();
-        });
-    }
-}
-function resetScore() {
-    if (scoreElement) {
-        score = 0;
-        scoreElement.innerText = 'SCORE: 0';
-    }
-}
-function giveRandomNumbers() {
-    var objectId1;
-    var objectId2;
-    do {
-        objectId1 = generateRandomNumber();
-        objectId2 = generateRandomNumber();
-        if (objectId1 === objectId2) {
-            console.log(objectId1, objectId2 + " Numbers are the same, rerolling");
+    };
+    SoonerOrLaterGame.prototype.fetchJSONFile = function (url, callback) {
+        fetch(url)
+            .then(function (response) { return response.json(); })
+            .then(function (fetchedData) {
+            callback(fetchedData);
+        })
+            .catch(function (error) { return console.error('Error fetching JSON:', error); });
+    };
+    SoonerOrLaterGame.prototype.handleComposerData = function (fetchedData) {
+        this.composersData = fetchedData;
+        this.setInitialGameState(fetchedData);
+    };
+    SoonerOrLaterGame.prototype.handleHistoricalEventData = function (fetchedData) {
+        this.historicalEventsData = fetchedData;
+    };
+    SoonerOrLaterGame.prototype.setInitialGameState = function (fetchedData) {
+        this.objectData = fetchedData;
+        if (this.composersData != null) {
+            this.amountOfObjects = this.composersData.length;
+            this.main();
+        }
+    };
+    SoonerOrLaterGame.prototype.switchData = function (newData) {
+        var confirmation = window.confirm('Warning: if you switch, your score will reset. Do you want to proceed?');
+        if (confirmation) {
+            this.objectData = newData;
+            this.amountOfObjects = newData.length;
+            this.resetScore();
+            this.main();
         }
         else {
-            console.log(objectId1, objectId2);
-            return [objectId1, objectId2];
+            this.composersButton.checked = this.objectData === this.composersData;
+            this.historicalEventsButton.checked = this.objectData === this.historicalEventsData;
         }
-    } while (true);
-}
-function generateRandomNumber() {
-    return Math.floor(Math.random() * amountOfObjects);
-}
-function getObjectData(objectID1, objectID2) {
-    if (objectData) {
-        var object1 = objectData.find(function (object) { return object.id === objectID1; });
-        var object2 = objectData.find(function (object) { return object.id === objectID2; });
-        return [object1, object2].filter(function (HigherOrLowerObject) { return HigherOrLowerObject !== undefined; });
-    }
-}
-function displayObjects(object1, object2) {
-    var imageElementObject1 = document.getElementById('composerImage1');
-    var imageElementObject2 = document.getElementById('composerImage2');
-    var descriptionElementObject1 = document.getElementById('composerDescription1');
-    var descriptionElementObject2 = document.getElementById('composerDescription2');
-    if (object1 && imageElementObject1) {
-        imageElementObject1.src = object1.image;
-        descriptionElementObject1.innerText = object1.name;
-    }
-    if (object2 && imageElementObject2) {
-        imageElementObject2.src = object2.image;
-        descriptionElementObject2.innerText = object2.name;
-    }
-}
-function countdownAndExecute(callback) {
-    var secondsRemaining = 1;
-    guessEerderButton.disabled = true;
-    guessLaterButton.disabled = true;
-    var countdownInterval = setInterval(function () {
-        secondsRemaining--;
-        if (secondsRemaining < 0) {
-            clearInterval(countdownInterval);
-            guessEerderButton.disabled = false;
-            guessLaterButton.disabled = false;
-            callback(); // Execute the provided callback after 3 seconds
+    };
+    SoonerOrLaterGame.prototype.main = function () {
+        var randomNumbers = this.giveRandomNumbers();
+        if (randomNumbers) {
+            this.randomObjectData = this.getObjectData(randomNumbers[0], randomNumbers[1]);
+            if (this.randomObjectData) {
+                this.displayObjects(this.randomObjectData[0], this.randomObjectData[1]);
+            }
         }
-    }, 1000); // Update every 1 second
-}
+    };
+    SoonerOrLaterGame.prototype.guessEerder = function () {
+        if (this.randomObjectData != null && this.randomObjectData[0].data > this.randomObjectData[1].data) {
+            this.rightGuess();
+        }
+        else {
+            this.wrongGuess();
+        }
+    };
+    SoonerOrLaterGame.prototype.guessLater = function () {
+        if (this.randomObjectData && this.randomObjectData[0] && this.randomObjectData[1] != null && this.randomObjectData[0].data < this.randomObjectData[1].data) {
+            this.rightGuess();
+        }
+        else {
+            this.wrongGuess();
+        }
+    };
+    SoonerOrLaterGame.prototype.rightGuess = function () {
+        var _this = this;
+        if (this.imageRight) {
+            this.imageRight.classList.add('borderWin');
+            this.updateScoreRightGuess();
+            this.countdownAndExecute(function () {
+                if (_this.imageRight) {
+                    _this.imageRight.classList.remove('borderWin');
+                    _this.main();
+                }
+            });
+        }
+    };
+    SoonerOrLaterGame.prototype.updateScoreRightGuess = function () {
+        if (this.scoreElement) {
+            this.score = this.score + 1;
+            this.scoreElement.innerText = 'SCORE: ' + this.score;
+        }
+    };
+    SoonerOrLaterGame.prototype.wrongGuess = function () {
+        var _this = this;
+        if (this.imageRight) {
+            this.resetScore();
+            this.imageRight.classList.add('borderLose');
+            this.countdownAndExecute(function () {
+                if (_this.imageRight) {
+                    _this.imageRight.classList.remove('borderLose');
+                    _this.main();
+                }
+            });
+        }
+    };
+    SoonerOrLaterGame.prototype.resetScore = function () {
+        if (this.scoreElement) {
+            this.score = 0;
+            this.scoreElement.innerText = 'SCORE: 0';
+        }
+    };
+    SoonerOrLaterGame.prototype.giveRandomNumbers = function () {
+        var objectId1;
+        var objectId2;
+        do {
+            objectId1 = this.generateRandomNumber();
+            objectId2 = this.generateRandomNumber();
+            if (objectId1 === objectId2) {
+                console.log(objectId1, objectId2 + " Numbers are the same, rerolling");
+            }
+            else {
+                console.log(objectId1, objectId2);
+                return [objectId1, objectId2];
+            }
+        } while (true);
+    };
+    SoonerOrLaterGame.prototype.generateRandomNumber = function () {
+        return Math.floor(Math.random() * this.amountOfObjects);
+    };
+    SoonerOrLaterGame.prototype.getObjectData = function (objectID1, objectID2) {
+        if (this.objectData) {
+            var object1 = this.objectData.find(function (object) { return object.id === objectID1; });
+            var object2 = this.objectData.find(function (object) { return object.id === objectID2; });
+            return [object1, object2].filter(function (HigherOrLowerObject) { return HigherOrLowerObject !== undefined; });
+        }
+    };
+    SoonerOrLaterGame.prototype.displayObjects = function (object1, object2) {
+        var imageElementObject1 = document.getElementById('composerImage1');
+        var imageElementObject2 = document.getElementById('composerImage2');
+        var descriptionElementObject1 = document.getElementById('composerDescription1');
+        var descriptionElementObject2 = document.getElementById('composerDescription2');
+        if (object1 && imageElementObject1) {
+            imageElementObject1.src = object1.image;
+            descriptionElementObject1.innerText = object1.name;
+        }
+        if (object2 && imageElementObject2) {
+            imageElementObject2.src = object2.image;
+            descriptionElementObject2.innerText = object2.name;
+        }
+    };
+    SoonerOrLaterGame.prototype.countdownAndExecute = function (callback) {
+        var _this = this;
+        var secondsRemaining = 0.5;
+        this.guessEerderButton.disabled = true;
+        this.guessLaterButton.disabled = true;
+        var countdownInterval = setInterval(function () {
+            secondsRemaining--;
+            if (secondsRemaining < 0) {
+                clearInterval(countdownInterval);
+                _this.guessEerderButton.disabled = false;
+                _this.guessLaterButton.disabled = false;
+                callback(); // Execute the provided callback after the given amount of seconds
+            }
+        }, 1000); // Update every 1 second
+    };
+    return SoonerOrLaterGame;
+}());
+new SoonerOrLaterGame();
 var observer = new IntersectionObserver(function (entries) {
     entries.forEach(function (entry) {
         if (entry.isIntersecting) {
@@ -182,8 +199,3 @@ var observer = new IntersectionObserver(function (entries) {
 });
 var hiddenElements = document.querySelectorAll('.hidden');
 hiddenElements.forEach(function (el) { return observer.observe(el); });
-/* Initial Fetch */
-window.addEventListener('load', function () {
-    fetchJSONFile('/otherFiles/composers.json', handleComposerData);
-    fetchJSONFile('/otherFiles/historicalevents.json', handleHistoricalEventData);
-});
