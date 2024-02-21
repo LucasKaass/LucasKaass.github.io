@@ -72,11 +72,11 @@ class SoonerOrLaterGame {
 
     private handleComposerData(fetchedData: HigherOrLowerObject[]) {
         this.composersData = fetchedData;
-        this.setInitialGameState(fetchedData);
     }
 
     private handleHistoricalEventData(fetchedData: HigherOrLowerObject[]) {
         this.historicalEventsData = fetchedData;
+        this.setInitialGameState(fetchedData);
     }
 
     private setInitialGameState(fetchedData: HigherOrLowerObject[] | undefined): any {

@@ -42,10 +42,10 @@ var SoonerOrLaterGame = /** @class */ (function () {
     };
     SoonerOrLaterGame.prototype.handleComposerData = function (fetchedData) {
         this.composersData = fetchedData;
-        this.setInitialGameState(fetchedData);
     };
     SoonerOrLaterGame.prototype.handleHistoricalEventData = function (fetchedData) {
         this.historicalEventsData = fetchedData;
+        this.setInitialGameState(fetchedData);
     };
     SoonerOrLaterGame.prototype.setInitialGameState = function (fetchedData) {
         this.objectData = fetchedData;
