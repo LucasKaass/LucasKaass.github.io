@@ -153,7 +153,9 @@ var SoonerOrLaterGame = /** @class */ (function () {
         } while (true);
     };
     SoonerOrLaterGame.prototype.generateRandomNumber = function () {
-        return Math.floor(Math.random() * this.amountOfObjects);
+        var randomNumber = Math.floor(Math.random() * this.amountOfObjects);
+        console.log(randomNumber);
+        return randomNumber;
     };
     SoonerOrLaterGame.prototype.getObjectData = function (objectID1, objectID2) {
         if (this.objectData) {
