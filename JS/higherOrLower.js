@@ -133,7 +133,13 @@ var SoonerOrLaterGame = /** @class */ (function () {
     SoonerOrLaterGame.prototype.giveRandomNumbers = function () {
         var objectId1;
         var objectId2;
+        var attempts = 0;
+        var maxAttempts = 100; // Adjust this value as needed
         do {
+            if (attempts >= maxAttempts) {
+                console.log("Exceeded maximum attempts. Unable to generate unique numbers.");
+                return undefined;
+            }
             objectId1 = this.generateRandomNumber();
             objectId2 = this.generateRandomNumber();
             if (objectId1 === objectId2) {
@@ -143,6 +149,7 @@ var SoonerOrLaterGame = /** @class */ (function () {
                 console.log(objectId1, objectId2);
                 return [objectId1, objectId2];
             }
+            attempts++;
         } while (true);
     };
     SoonerOrLaterGame.prototype.generateRandomNumber = function () {

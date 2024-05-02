@@ -171,8 +171,15 @@ class SoonerOrLaterGame {
     private giveRandomNumbers(): number[] | undefined {
         let objectId1: number;
         let objectId2: number;
+        let attempts = 0;
+        const maxAttempts = 100; // Adjust this value as needed
 
         do {
+            if (attempts >= maxAttempts) {
+                console.log("Exceeded maximum attempts. Unable to generate unique numbers.");
+                return undefined;
+            }
+
             objectId1 = this.generateRandomNumber();
             objectId2 = this.generateRandomNumber();
 
@@ -182,8 +189,11 @@ class SoonerOrLaterGame {
                 console.log(objectId1, objectId2);
                 return [objectId1, objectId2];
             }
+
+            attempts++;
         } while (true);
     }
+
 
     private generateRandomNumber(): number {
         return Math.floor(Math.random() * this.amountOfObjects);

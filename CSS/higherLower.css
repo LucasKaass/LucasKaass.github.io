@@ -25,7 +25,6 @@
     background-color: #ffffff;
     transition: background-color 0.3s, color 0.3s;
     height: fit-content;
-    margin-top: 100px;
 }
 
 .button:hover {
@@ -61,6 +60,14 @@
     font-size: 30px;
 }
 
+.questionContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
 @media screen and (max-width: 1452px) {
     .composerImage, .composerImage2 {
         max-width: 350px;
@@ -77,6 +84,7 @@
     }
 
 }
+
 
 body {
     font-family: Arial, sans-serif;

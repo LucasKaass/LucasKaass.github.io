@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../CSS/higherLower.css">
     <meta charset="UTF-8">
     <title>Sooner or later</title>
-    <script defer src="../TS/higherOrLower.js"></script>
+    <script defer src="../JS/higherOrLower.js"></script>
 </head>
 <body>
 
@@ -54,12 +54,6 @@
 
 <div class="main">
 
-    <section class="section-main1">
-        <h1 class="text-home hidden" style="font-size: 50px; margin-top: 25px;">Sooner or later?</h1>
-        <p class="text-home hidden" style="font-size:40px">I present: my own minigame. <br> Guess if the person or event
-            to the right was born/occurred sooner or later.<br> If you guess right, you earn a point.</p>
-    </section>
-
     <section class="scoreSection">
         <h>Gamemodes:</h>
         <div class="radio-group">
@@ -72,21 +66,28 @@
         <p class="score" id="score">SCORE: 0</p>
     </section>
 
+    <div class="questionContainer">
+        <p>Did the<p id="composerDescription2" class="composerDescription"> </p> occur sooner or later than <p id="composerDescription1" class="composerDescription"> </p></p>
+    </div>
+
     <div class="buttonSection">
         <button class="button" id="guessEerder">Sooner</button>
         <button class="button secondary-button" id="guessLater">Later</button>
     </div>
 
+
+
     <section class="section-higherLower1">
+
         <div class="composerContainer">
-            <p id="composerDescription1" class="composerDescription"></p>
-            <img id="composerImage1" class="composerImage">
+            <img id="composerImage2" class="composerImage2">
         </div>
 
         <div class="composerContainer">
-            <p id="composerDescription2" class="composerDescription"></p>
-            <img id="composerImage2" class="composerImage2">
+
+            <img id="composerImage1" class="composerImage">
         </div>
+
     </section>
 
     <footer class="section-main-footer">
