@@ -1,11 +1,4 @@
-window.addEventListener("load", initializeSoonerOrLaterGame)
-
-interface HigherOrLowerObject {
-    id: number;
-    name: string;
-    data: string;
-    image: string;
-}
+import {HigherOrLowerObject} from "./HigherOrLowerObject";
 
 class SoonerOrLaterGame {
     private objectData: HigherOrLowerObject[] | undefined;
@@ -257,7 +250,10 @@ const observer = new IntersectionObserver((entries) => {
 
 function initializeSoonerOrLaterGame() {
     new SoonerOrLaterGame();
+    console.log('jdaiosd')
 }
 
 const hiddenElements = document.querySelectorAll('.hidden');
 hiddenElements.forEach((el) => observer.observe(el));
+
+document.addEventListener('load', initializeSoonerOrLaterGame)

@@ -1,4 +1,3 @@
-"use strict";
 var SoonerOrLaterGame = /** @class */ (function () {
     function SoonerOrLaterGame() {
         this.composersData = [];
@@ -153,9 +152,7 @@ var SoonerOrLaterGame = /** @class */ (function () {
         } while (true);
     };
     SoonerOrLaterGame.prototype.generateRandomNumber = function () {
-        var randomNumber = Math.floor(Math.random() * this.amountOfObjects);
-        console.log(randomNumber);
-        return randomNumber;
+        return Math.floor(Math.random() * this.amountOfObjects);
     };
     SoonerOrLaterGame.prototype.getObjectData = function (objectID1, objectID2) {
         if (this.objectData) {
@@ -195,7 +192,6 @@ var SoonerOrLaterGame = /** @class */ (function () {
     };
     return SoonerOrLaterGame;
 }());
-new SoonerOrLaterGame();
 var observer = new IntersectionObserver(function (entries) {
     entries.forEach(function (entry) {
         if (entry.isIntersecting) {
@@ -206,5 +202,11 @@ var observer = new IntersectionObserver(function (entries) {
         }
     });
 });
+function initializeSoonerOrLaterGame() {
+    new SoonerOrLaterGame();
+    console.log('jdaiosd');
+}
 var hiddenElements = document.querySelectorAll('.hidden');
 hiddenElements.forEach(function (el) { return observer.observe(el); });
+document.addEventListener('load', initializeSoonerOrLaterGame);
+export {};
