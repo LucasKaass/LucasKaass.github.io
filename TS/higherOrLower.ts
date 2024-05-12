@@ -1,3 +1,5 @@
+window.addEventListener("load", initializeSoonerOrLaterGame)
+
 interface HigherOrLowerObject {
     id: number;
     name: string;
@@ -243,8 +245,6 @@ class SoonerOrLaterGame {
     }
 }
 
-new SoonerOrLaterGame();
-
 const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
         if (entry.isIntersecting) {
@@ -255,6 +255,9 @@ const observer = new IntersectionObserver((entries) => {
     });
 });
 
+function initializeSoonerOrLaterGame() {
+    new SoonerOrLaterGame();
+}
+
 const hiddenElements = document.querySelectorAll('.hidden');
 hiddenElements.forEach((el) => observer.observe(el));
-
