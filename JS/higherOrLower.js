@@ -1,3 +1,4 @@
+"use strict";
 var SoonerOrLaterGame = /** @class */ (function () {
     function SoonerOrLaterGame() {
         this.composersData = [];
@@ -208,5 +209,4 @@ function initializeSoonerOrLaterGame() {
 }
 var hiddenElements = document.querySelectorAll('.hidden');
 hiddenElements.forEach(function (el) { return observer.observe(el); });
-document.addEventListener('load', initializeSoonerOrLaterGame);
-export {};
+initializeSoonerOrLaterGame();

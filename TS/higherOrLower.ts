@@ -1,4 +1,9 @@
-import {HigherOrLowerObject} from "./HigherOrLowerObject";
+interface HigherOrLowerObject {
+    id: number;
+    name: string;
+    data: string;
+    image: string;
+}
 
 class SoonerOrLaterGame {
     private objectData: HigherOrLowerObject[] | undefined;
@@ -256,4 +261,4 @@ function initializeSoonerOrLaterGame() {
 const hiddenElements = document.querySelectorAll('.hidden');
 hiddenElements.forEach((el) => observer.observe(el));
 
-document.addEventListener('load', initializeSoonerOrLaterGame)
+initializeSoonerOrLaterGame()
