@@ -38,7 +38,7 @@ class SoonerOrLaterGame {
         this.init();
     }
 
-    private init() {
+    private async init() {
         this.composersButton.addEventListener("click", () => {
             this.switchData(this.composersData);
         });
@@ -55,14 +55,12 @@ class SoonerOrLaterGame {
             this.guessLaterButton.addEventListener('click', this.guessLater.bind(this));
         }
 
-        window.addEventListener('load', () => {
-            this.fetchJSONFile('/otherFiles/composers.json', this.handleComposerData.bind(this));
-            this.fetchJSONFile('/otherFiles/historicalevents.json', this.handleHistoricalEventData.bind(this));
-        });
+        await this.fetchJSONFile('/otherFiles/composers.json', this.handleComposerData.bind(this));
+        await this.fetchJSONFile('/otherFiles/historicalevents.json', this.handleHistoricalEventData.bind(this));
     }
 
-    private fetchJSONFile(url: string, callback: (fetchedData: HigherOrLowerObject[]) => void): any {
-        fetch(url)
+    private async fetchJSONFile(url: string, callback: (fetchedData: HigherOrLowerObject[]) => void) {
+        await fetch(url)
             .then(response => response.json())
             .then(fetchedData => {
                 callback(fetchedData);
@@ -81,9 +79,11 @@ class SoonerOrLaterGame {
 
     private setInitialGameState(fetchedData: HigherOrLowerObject[] | undefined): any {
         this.objectData = fetchedData;
-        if (this.composersData != null) {
+        if (this.composersData.length > 0) {
             this.amountOfObjects = this.composersData.length;
             this.main();
+        } else {
+            console.log('data is empty')
         }
     }
 
@@ -184,7 +184,7 @@ class SoonerOrLaterGame {
             objectId2 = this.generateRandomNumber();
 
             if (objectId1 === objectId2) {
-                console.log(objectId1, objectId2 + " Numbers are the same, rerolling");
+                console.log(objectId1.toString() + objectId2.toString() + " Numbers are the same, rerolling");
             } else {
                 console.log(objectId1, objectId2);
                 return [objectId1, objectId2];
@@ -253,11 +253,7 @@ const observer = new IntersectionObserver((entries) => {
     });
 });
 
-function initializeSoonerOrLaterGame() {
-    new SoonerOrLaterGame();
-}
-
 const hiddenElements = document.querySelectorAll('.hidden');
 hiddenElements.forEach((el) => observer.observe(el));
 
-initializeSoonerOrLaterGame()
+new SoonerOrLaterGame()
