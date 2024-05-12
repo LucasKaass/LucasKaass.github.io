@@ -205,7 +205,6 @@ var observer = new IntersectionObserver(function (entries) {
 });
 function initializeSoonerOrLaterGame() {
     new SoonerOrLaterGame();
-    console.log('jdaiosd');
 }
 var hiddenElements = document.querySelectorAll('.hidden');
 hiddenElements.forEach(function (el) { return observer.observe(el); });

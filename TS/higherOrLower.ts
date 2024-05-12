@@ -255,7 +255,6 @@ const observer = new IntersectionObserver((entries) => {
 
 function initializeSoonerOrLaterGame() {
     new SoonerOrLaterGame();
-    console.log('jdaiosd')
 }
 
 const hiddenElements = document.querySelectorAll('.hidden');
