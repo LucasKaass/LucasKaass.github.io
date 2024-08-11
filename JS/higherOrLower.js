@@ -35,7 +35,22 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
+/**
+ * @typedef {Object} HigherOrLowerObject
+ * @property {number} id - Unique identifier for the object.
+ * @property {string} name - Name of the object.
+ * @property {string} data - The data associated with the object (e.g., year, date).
+ * @property {string} image - URL to the image associated with the object.
+ */
+/**
+ * Represents the main game logic for the Sooner or Later Game.
+ * @class
+ */
 var SoonerOrLaterGame = /** @class */ (function () {
+    /**
+     * Initializes a new instance of the SoonerOrLaterGame class.
+     * Sets up event listeners and fetches initial data.
+     */
     function SoonerOrLaterGame() {
         this.composersData = [];
         this.historicalEventsData = [];
@@ -49,6 +64,10 @@ var SoonerOrLaterGame = /** @class */ (function () {
         this.scoreElement = document.getElementById('score');
         this.init();
     }
+    /**
+     * Initializes the game by setting up event listeners and fetching initial data.
+     * @private
+     */
     SoonerOrLaterGame.prototype.init = function () {
         return __awaiter(this, void 0, void 0, function () {
             var _this = this;
@@ -78,6 +97,12 @@ var SoonerOrLaterGame = /** @class */ (function () {
             });
         });
     };
+    /**
+     * Fetches a JSON file and executes a callback function with the fetched data.
+     * @private
+     * @param {string} url - The URL of the JSON file to fetch.
+     * @param {(fetchedData: HigherOrLowerObject[]) => void} callback - The callback function to execute with the fetched data.
+     */
     SoonerOrLaterGame.prototype.fetchJSONFile = function (url, callback) {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
@@ -95,13 +120,29 @@ var SoonerOrLaterGame = /** @class */ (function () {
             });
         });
     };
+    /**
+     * Handles the composer data once it's fetched by storing it in the class.
+     * @private
+     * @param {HigherOrLowerObject[]} fetchedData - The fetched composer data.
+     */
     SoonerOrLaterGame.prototype.handleComposerData = function (fetchedData) {
         this.composersData = fetchedData;
     };
+    /**
+     * Handles the historical event data once it's fetched and sets the initial game state.
+     * @private
+     * @param {HigherOrLowerObject[]} fetchedData - The fetched historical event data.
+     */
     SoonerOrLaterGame.prototype.handleHistoricalEventData = function (fetchedData) {
         this.historicalEventsData = fetchedData;
         this.setInitialGameState(fetchedData);
     };
+    /**
+     * Sets the initial game state using the provided data.
+     * @private
+     * @param {HigherOrLowerObject[] | undefined} fetchedData - The initial data to set the game state with.
+     * @returns {void}
+     */
     SoonerOrLaterGame.prototype.setInitialGameState = function (fetchedData) {
         this.objectData = fetchedData;
         if (this.composersData.length > 0) {
@@ -112,6 +153,11 @@ var SoonerOrLaterGame = /** @class */ (function () {
             console.log('data is empty');
         }
     };
+    /**
+     * Switches the current data to a new set and resets the score if confirmed.
+     * @private
+     * @param {HigherOrLowerObject[]} newData - The new data to switch to.
+     */
     SoonerOrLaterGame.prototype.switchData = function (newData) {
         var confirmation = window.confirm('Warning: if you switch, your score will reset. Do you want to proceed?');
         if (confirmation) {
@@ -125,23 +171,35 @@ var SoonerOrLaterGame = /** @class */ (function () {
             this.historicalEventsButton.checked = this.objectData === this.historicalEventsData;
         }
     };
+    /**
+     * The main game logic for selecting random objects and displaying them.
+     * @private
+     */
     SoonerOrLaterGame.prototype.main = function () {
         var randomNumbers = this.giveRandomNumbers();
         if (randomNumbers) {
             this.randomObjectData = this.getObjectData(randomNumbers[0], randomNumbers[1]);
             if (this.randomObjectData) {
-                this.displayObjects(this.randomObjectData[0], this.randomObjectData[1]);
+                this.loadObjects(this.randomObjectData[0], this.randomObjectData[1]);
             }
         }
     };
+    /**
+     * Handles the logic for guessing if the first object occurred earlier.
+     * @private
+     */
     SoonerOrLaterGame.prototype.guessEerder = function () {
-        if (this.randomObjectData != null && this.randomObjectData[0].data > this.randomObjectData[1].data) {
+        if (this.randomObjectData && this.randomObjectData[0].data > this.randomObjectData[1].data) {
             this.rightGuess();
         }
         else {
             this.wrongGuess();
         }
     };
+    /**
+     * Handles the logic for guessing if the first object occurred later.
+     * @private
+     */
     SoonerOrLaterGame.prototype.guessLater = function () {
         if (this.randomObjectData && this.randomObjectData[0] && this.randomObjectData[1] != null && this.randomObjectData[0].data < this.randomObjectData[1].data) {
             this.rightGuess();
@@ -150,6 +208,10 @@ var SoonerOrLaterGame = /** @class */ (function () {
             this.wrongGuess();
         }
     };
+    /**
+     * Handles the logic for a correct guess.
+     * @private
+     */
     SoonerOrLaterGame.prototype.rightGuess = function () {
         var _this = this;
         if (this.imageRight) {
@@ -163,12 +225,20 @@ var SoonerOrLaterGame = /** @class */ (function () {
             });
         }
     };
+    /**
+     * Updates the score for a correct guess.
+     * @private
+     */
     SoonerOrLaterGame.prototype.updateScoreRightGuess = function () {
         if (this.scoreElement) {
             this.score = this.score + 1;
             this.scoreElement.innerText = 'SCORE: ' + this.score;
         }
     };
+    /**
+     * Handles the logic for an incorrect guess.
+     * @private
+     */
     SoonerOrLaterGame.prototype.wrongGuess = function () {
         var _this = this;
         if (this.imageRight) {
@@ -182,17 +252,26 @@ var SoonerOrLaterGame = /** @class */ (function () {
             });
         }
     };
+    /**
+     * Resets the score to 0.
+     * @private
+     */
     SoonerOrLaterGame.prototype.resetScore = function () {
         if (this.scoreElement) {
             this.score = 0;
             this.scoreElement.innerText = 'SCORE: 0';
         }
     };
+    /**
+     * Generates two unique random numbers to select objects.
+     * @private
+     * @returns {number[] | undefined} An array of two unique random numbers or undefined if it fails.
+     */
     SoonerOrLaterGame.prototype.giveRandomNumbers = function () {
         var objectId1;
         var objectId2;
         var attempts = 0;
-        var maxAttempts = 100; // Adjust this value as needed
+        var maxAttempts = 100;
         do {
             if (attempts >= maxAttempts) {
                 console.log("Exceeded maximum attempts. Unable to generate unique numbers.");
@@ -210,9 +289,21 @@ var SoonerOrLaterGame = /** @class */ (function () {
             attempts++;
         } while (true);
     };
+    /**
+     * Generates a random number based on the amount of objects available.
+     * @private
+     * @returns {number} A random number.
+     */
     SoonerOrLaterGame.prototype.generateRandomNumber = function () {
         return Math.floor(Math.random() * this.amountOfObjects);
     };
+    /**
+     * Retrieves object data based on the provided IDs.
+     * @private
+     * @param {number} objectID1 - The ID of the first object.
+     * @param {number} objectID2 - The ID of the second object.
+     * @returns {HigherOrLowerObject[] | undefined} An array of the selected objects' data or undefined.
+     */
     SoonerOrLaterGame.prototype.getObjectData = function (objectID1, objectID2) {
         if (this.objectData) {
             var object1 = this.objectData.find(function (object) { return object.id === objectID1; });
@@ -220,25 +311,62 @@ var SoonerOrLaterGame = /** @class */ (function () {
             return [object1, object2].filter(function (HigherOrLowerObject) { return HigherOrLowerObject !== undefined; });
         }
     };
-    SoonerOrLaterGame.prototype.displayObjects = function (object1, object2) {
+    /**
+     * Loads the objects' images and descriptions onto the page.
+     * @private
+     * @param {HigherOrLowerObject} object1 - The first object.
+     * @param {HigherOrLowerObject} object2 - The second object.
+     */
+    SoonerOrLaterGame.prototype.loadObjects = function (object1, object2) {
+        var image1 = object1.image;
+        var image2 = object2.image;
         var imageElementObject1 = document.getElementById('composerImage1');
         var imageElementObject2 = document.getElementById('composerImage2');
         var descriptionElementObject1 = document.getElementById('composerDescription1');
         var descriptionElementObject2 = document.getElementById('composerDescription2');
-        if (object1 && imageElementObject1) {
-            imageElementObject1.src = object1.image;
-            descriptionElementObject1.innerText = object1.name;
-        }
-        if (object2 && imageElementObject2) {
-            imageElementObject2.src = object2.image;
-            descriptionElementObject2.innerText = object2.name;
-        }
+        var loaderElement = document.getElementById('loader1');
+        imageElementObject1.style.opacity = '0.5';
+        imageElementObject2.style.opacity = '0.5';
+        this.displayObjects(object1, object2, image1, image2, imageElementObject1, imageElementObject2, descriptionElementObject1, descriptionElementObject2, loaderElement);
     };
+    /**
+     * Displays the objects' images and descriptions on the page.
+     * @private
+     * @param {HigherOrLowerObject} object1 - The first object.
+     * @param {HigherOrLowerObject} object2 - The second object.
+     * @param {string} image1 - The URL of the first object's image.
+     * @param {string} image2 - The URL of the second object's image.
+     * @param {HTMLImageElement} imageElementObject1 - The first image element on the page.
+     * @param {HTMLImageElement} imageElementObject2 - The second image element on the page.
+     * @param {HTMLElement} descriptionElementObject1 - The first description element on the page.
+     * @param {HTMLElement} descriptionElementObject2 - The second description element on the page.
+     * @param {HTMLElement} loaderElement - The loader element on the page.
+     */
+    SoonerOrLaterGame.prototype.displayObjects = function (object1, object2, image1, image2, imageElementObject1, imageElementObject2, descriptionElementObject1, descriptionElementObject2, loaderElement) {
+        imageElementObject1.onload = function () {
+            imageElementObject1.style.opacity = '1';
+        };
+        imageElementObject1.src = object1.image;
+        descriptionElementObject1.innerText = object1.name;
+        imageElementObject2.onload = function () {
+            imageElementObject2.style.opacity = '1';
+        };
+        imageElementObject2.src = image2;
+        descriptionElementObject2.innerText = object2.name;
+        loaderElement.classList.remove('loader');
+    };
+    /**
+     * Disables the buttons, adds a countdown, and then executes a callback function.
+     * @private
+     * @param {() => void} callback - The callback function to execute after the countdown.
+     */
     SoonerOrLaterGame.prototype.countdownAndExecute = function (callback) {
         var _this = this;
+        var loaderElement = document.getElementById('loader1');
         var secondsRemaining = 0.5;
         this.guessEerderButton.disabled = true;
         this.guessLaterButton.disabled = true;
+        loaderElement.classList.add('loader');
         var countdownInterval = setInterval(function () {
             secondsRemaining--;
             if (secondsRemaining < 0) {
@@ -251,6 +379,7 @@ var SoonerOrLaterGame = /** @class */ (function () {
     };
     return SoonerOrLaterGame;
 }());
+/** Initialize the IntersectionObserver to handle animations on scroll */
 var observer = new IntersectionObserver(function (entries) {
     entries.forEach(function (entry) {
         if (entry.isIntersecting) {
@@ -261,6 +390,8 @@ var observer = new IntersectionObserver(function (entries) {
         }
     });
 });
+/** Observe all elements with the 'hidden' class for the IntersectionObserver */
 var hiddenElements = document.querySelectorAll('.hidden');
 hiddenElements.forEach(function (el) { return observer.observe(el); });
+/** Start a new instance of the SoonerOrLaterGame */
 new SoonerOrLaterGame();

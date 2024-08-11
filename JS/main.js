@@ -28,7 +28,7 @@ const data = {
                 "My name is Lucas, and I am a passionate Software Developer. <br> With 4 years of experience as a student, intern, and hobbyist, I have built knowledge in Application Development, Web Development, Databases and scripting. <br> <br> What started as a hobby and interest has now turned into an MBO4 diploma in Software Development, and it doesn't stop there. <br> Because I aspire to expand my expertise and skills, I have recently started my Associate's degree in Software Development at the Amsterdam University of Applied Sciences.",
 
             "info_titel2": "And furthermore...",
-            "info_content2": "Now that I have obtained my diploma, I find myself in a position where I could enter the job market. <br> However, I have chosen to continue my studies. <br> To still make the most of my diploma and build a portfolio, I have decided to establish my own company where I offer programming services as a freelancer. <br> <br> If you need a workforce for a small project, website, or any other work requiring programming, please let me know. <br> I would be happy to help. <br> <br> Contact Information:"
+            "info_content2": "Now that I have obtained my diploma, I find myself in a position where I could enter the job market. However, I have chosen to continue my studies. <br> <br> To still build a portfolio, I have decided to create this site as an additional project. <br> <br> Contact information:\n"
         },
     "nederlands":
         {
@@ -38,7 +38,11 @@ const data = {
 
             "info_titel2": "En verder...",
             "info_content2":
-                "Nu ik mijn diploma heb behaald, bevind ik mij in een positie waar ik de arbeidsmarkt op zou kunnen gaan, echter heb ik er voor gekozen om verder te studeren. <br> Om alsnog wat uit mijn diploma te halen en hiermee een portfolio op te bouwen heb ik besloten een eigen bedrijf op te richten waar ik als ZZP'er programmeerdiensten aanbied.<br> <br> Heeft u een arbeidskracht nodig voor bijvoorbeeld een klein project, website of ander werk waar programmeren nodig is? <br> Ik hoor het graag. <br> <br> Contactinformatie: "
+                "Nu ik mijn diploma heb behaald, bevind ik mij in een positie waar ik de\n" +
+                "                arbeidsmarkt op zou kunnen gaan, echter heb ik er voor gekozen om verder te studeren. <br> <br> Om\n" +
+                "                alsnog een\n" +
+                "                portfolio op te bouwen heb ik besloten deze site te maken als\n" +
+                "                additioneel project. <br> <br> Contactinformatie:"
         }
 }
 //Langswitch^

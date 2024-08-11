@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script src="https://kit.fontawesome.com/2a0377810d.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="../CSS/main.css">
-    <link rel="stylesheet" href="../CSS/higherLower.css">
+    <script crossorigin="anonymous" src="https://kit.fontawesome.com/2a0377810d.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="../CSS/main.css" rel="stylesheet">
+    <link href="../CSS/higherLower.css" rel="stylesheet">
+    <link href="../CSS/loader.css" rel="stylesheet">
     <meta charset="UTF-8">
     <title>Sooner or later</title>
     <script defer src="../JS/higherOrLower.js"></script>
@@ -53,14 +54,13 @@
 </header>
 
 <div class="main">
-
     <section class="scoreSection">
         <h>Gamemodes:</h>
         <div class="radio-group">
-            <input type="radio" id="composersRadio" name="group" class="buttonGamemode">
+            <input class="buttonGamemode" id="composersRadio" name="group" type="radio">
             <label for="composersRadio">Composers</label>
 
-            <input type="radio" id="historicalEventsRadio" name="group" checked class="buttonGamemode">
+            <input checked class="buttonGamemode" id="historicalEventsRadio" name="group" type="radio">
             <label for="historicalEventsRadio">Historical events</label>
         </div>
         <p class="score" id="score">SCORE: 0</p>
@@ -73,29 +73,26 @@
 
     <div class="gameContainer">
 
-    <div class="composerContainer">
-        <img id="composerImage2" class="composerImage2">
+        <div class="composerContainer">
+            <img class="composerImage2" id="composerImage2">
+        </div>
+
+        <div class="questionContainer">
+            <div id="loader1" class="loader"></div>
+            <p>Did
+            <p class="composerDescription" id="composerDescription2"></p> occur sooner or later than <p
+                class="composerDescription" id="composerDescription1"></p></p>
+        </div>
+
+        <div class="composerContainer">
+
+            <img class="composerImage" id="composerImage1">
+        </div>
+
     </div>
-
-    <div class="questionContainer">
-        <p>Did<p id="composerDescription2" class="composerDescription"> </p> occur sooner or later than <p id="composerDescription1" class="composerDescription"> </p></p>
-    </div>
-
-    <div class="composerContainer">
-
-        <img id="composerImage1" class="composerImage">
-    </div>
-
-    </div>
-
-
-
-
 
 
     <section class="section-higherLower1">
-
-
 
 
     </section>
