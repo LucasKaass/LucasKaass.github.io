@@ -11,10 +11,10 @@ This site also acts as a way to make my contact information easily accessible (e
 I use github pages as my hosting service and for this reason I am quite limited to what I can publish on the site itself as far as code goes, no backend hosting is supported.
 For any backend related projects I advice you to browse through some of the other projects.
 
-#Description of pages
+# Description of pages
 Here I will list the pages of my site and what their purpose is.
 
-##Home page
+## Home page
 At the top of this page you will find a generic image of me together with an about me section containing a broad explaination of who I am.
 
 The next section contains an interactable image showreel. <br> Each element in this list represents one of my projects which I have contributed to with a comprehensive description in dutch. <br> <br> At the bottom of the home page you will find a contact simple contact form, which I have added to simply see if my HTML/CSS form knowledge was still in my brain.
